@@ -52,7 +52,7 @@ const Footer = () => {
     "@context": "https://schema.org",
     "@type": "Winery", // WineEstablishment-ის ნაცვლად Winery უფრო სპეციფიკურია SEO-სთვის
     "name": "LAMIANI",
-    "image": "https://thornikegallery.online/logo.png",
+    "image": "https://lamiani.ge/logo.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "David Gamrekeli Street 3",
@@ -61,7 +61,7 @@ const Footer = () => {
     },
     "telephone": "+995599472067",
     "email": "rklamiani@gmail.com",
-    "url": "https://thornikegallery.online",
+    "url": "https://lamiani.ge",
     "openingHours": "Mo-Su 11:00-23:00"
   };
 
