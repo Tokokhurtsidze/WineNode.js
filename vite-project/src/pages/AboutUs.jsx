@@ -6,14 +6,15 @@ import SeoManager from "../Seo/SeoManager";
 import { Link } from "react-router-dom";
 
 const translations = {
+
   GE: {
     seoTitle: "ჩვენს შესახებ | Lamiani Winery",
     badge: "ჩვენი ისტორია",
     title: "ფესვები <span class='italic'>მემკვიდრეობაში</span>",
-    p1: "მოგესალმებით ლამიანში — სივრცეში, რომელიც დაიბადა ქართული ღვინისა და მის უკან მდგარი ადამიანების სიყვარულით. ჩვენ ვთანამშრომლობთ მარნებთან, დაწყებული კახეთის პატარა საოჯახო მეურნეობებიდან, დიდ მამულებამდე.",
-    p2: "საქართველო არ არის მხოლოდ კიდევ ერთი მეღვინეობის ქვეყანა. ეს არის მეღვინეობის სამშობლო — 8000 წლიანი ისტორიით, ქვევრებითა და თითოეულ ბოთლში დადუღებული ამბებით.",
-    quote: '"ყველა კარგი ღვინო იწყება კარგი ისტორიით. ჩვენი მისიაა, ეს ისტორიები მთელმა მსოფლიომ მოისმინოს."',
-    stats: [{ l: "ისტორია", v: "8000 წელი" }, { l: "მარნები", v: "50+" }, { l: "ტრადიცია", v: "ქვევრი" }, { l: "ხარისხი", v: "პრემიუმი" }],
+    p1: "„ლამიანი“ კახური ტრადიციებისა და თანამედროვე ხედვის ერთობლიობაა. ჩვენი ისტორია ყვარელში, მაღალტექნოლოგიური საწარმოს შექმნით დაიწყო, სადაც პროფესიონალთა გუნდის დაუღალავი შრომა და მეღვინეობისადმი განსაკუთრებული მიდგომა უმაღლესი სტანდარტის პროდუქტად იქცა.",
+    p2: "ჩვენი კოლექცია ხუთ გამორჩეულ სახეობას აერთიანებს: რქაწითელი, საფერავი, ქინძმარაული და ალაზნის ველი (თეთრი/წითელი). თითოეული ბოთლი ყვარლის გამორჩეული ტერუარისა და ჩვენი გუნდის ერთიანი ძალისხმევის შედეგია.",
+    quote: '"ჩვენი მისიაა, ყვარლის მიწის ავთენტური გემო და ქართული მეღვინეობის პრემიუმ სტანდარტი მსოფლიოს გავაცნოთ."',
+    stats: [{ l: "დაარსდა", v: "2021" }, { l: "სახეობა", v: "5" }, { l: "ლოკაცია", v: "ყვარელი" }, { l: "ხარისხი", v: "პრემიუმი" }],
     cta: "მზად ხართ ჩვენი მარნის დასათვალიერებლად?",
     btn: "კოლექციის ნახვა"
   },
@@ -21,10 +22,10 @@ const translations = {
     seoTitle: "About Us | Lamiani Winery",
     badge: "Our Story",
     title: "Rooted in <span class='italic'>Heritage</span>",
-    p1: "Welcome to Lamiani — a space born out of love for Georgian wine and the people behind it. We work directly with wineries, from tiny family cellars tucked away in the valleys of Kakheti to larger estates.",
-    p2: "Georgia isn't just another wine country. It's the birthplace of winemaking — 8,000 years in the making, with qvevris buried in clay and stories fermented into every bottle.",
-    quote: '"Every good wine starts with a good story. Our mission is to make sure those stories are heard across the globe."',
-    stats: [{ l: "History", v: "8000 yrs" }, { l: "Wineries", v: "50+" }, { l: "Tradition", v: "Qvevri" }, { l: "Quality", v: "Premium" }],
+    p1: "Lamiani is a blend of Kakhetian tradition and modern vision. Our journey began in Kvareli with the establishment of a high-tech winery, where the dedication of our professional team and a unique approach to winemaking transformed into a premium standard of excellence.",
+    p2: "Our collection features five distinct varieties: Rkatsiteli, Saperavi, Kindzmarauli, and Alazani Valley (White/Red). Every bottle reflects the unique terroir of Kvareli and the collective passion of our team.",
+    quote: '"Our mission is to share the authentic taste of Kvareli and the premium standards of Georgian winemaking with the entire world."',
+    stats: [{ l: "Founded", v: "2021" }, { l: "Varieties", v: "5" }, { l: "Location", v: "Kvareli" }, { l: "Quality", v: "Premium" }],
     cta: "Ready to explore our cellar?",
     btn: "View Collections"
   },
@@ -32,10 +33,10 @@ const translations = {
     seoTitle: "О нас | Lamiani Winery",
     badge: "Наша история",
     title: "Корни в <span class='italic'>Наследии</span>",
-    p1: "Добро пожаловать в Ламиани — пространство, рожденное любовью к грузинскому вину и людям, стоящим за ним. Мы работаем напрямую с винодельнями, от крошечных семейных погребов до крупных поместий.",
-    p2: "Грузия — это не просто еще одна винная страна. Это родина виноделия с 8000-летней историей, квеври, зарытыми в глину, и историями, бродящими в каждой бутылке.",
-    quote: '"Каждое хорошее вино начинается с хорошей истории. Наша миссия — сделать так, чтобы эти истории были услышаны во всем мире."',
-    stats: [{ l: "История", v: "8000 лет" }, { l: "Винодельни", v: "50+" }, { l: "Традиции", v: "Квеври" }, { l: "Качество", v: "Премиум" }],
+    p1: "«Ламиани» — это сочетание кахетинских традиций и современного видения. Наша история началась в Кварели с создания высокотехнологичного производства, где неустанный труд нашей команды профессионалов воплотился в продукцию высшего стандарта.",
+    p2: "Наша коллекция включает пять знаковых сортов: Ркацители, Саперави, Киндзмараули и Алазанская Долина (белое/красное). Каждая бутылка — это результат уникального терруара Кварели и сплоченной работы нашей команды.",
+    quote: '"Наша миссия — познакомить мир с аутентичным вкусом земли Кварели и премиальным стандартом грузинского виноделия."',
+    stats: [{ l: "Основано", v: "2021" }, { l: "Видов", v: "5" }, { l: "Локация", v: "Кварели" }, { l: "Качество", v: "Премиум" }],
     cta: "Готовы изучить наш погреб?",
     btn: "Посмотреть коллекции"
   }
