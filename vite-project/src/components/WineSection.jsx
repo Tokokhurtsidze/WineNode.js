@@ -133,21 +133,7 @@ const WineSection = () => {
         </Link>
       </section>
 
-      {/* VINEYARD IMAGE */}
-      <div className="relative h-[450px] w-full overflow-hidden rounded-sm group shadow-2xl">
-        <img
-          src="https://static.vecteezy.com/system/resources/thumbnails/073/305/489/small/red-wine-bottle-and-glass-placed-on-rustic-wooden-barrel-in-vineyard-during-sunset-showcasing-serene-landscape-and-inviting-atmosphere-for-relaxation-and-enjoyment-photo.jpeg"
-          alt={t.altVineyard}
-          className="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="border border-white/30 backdrop-blur-sm p-10 text-white text-center">
-            <h4 className="text-[10px] uppercase tracking-[0.5em] mb-4">{t.terroir}</h4>
-            <p className="text-3xl font-light italic">{t.terroirQuote}</p>
-          </div>
-        </div>
-      </div>
+      
     </main>
   );
 };
