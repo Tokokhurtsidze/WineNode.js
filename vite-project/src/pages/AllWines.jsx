@@ -118,11 +118,13 @@ export default function AllWines() {
                 style={{ transitionDelay: `${(index % 4) * 150}ms` }}
               >
                 <div className="relative w-full aspect-[2/3] bg-[#fdfdfd] border border-gray-100/50 flex items-center justify-center p-8 overflow-hidden transition-all duration-700 group-hover:shadow-2xl group-hover:shadow-[#5b1f1f]/5">
-                  <img
-                    src={wine.img}
-                    alt={getLangValue(wine, "name")}
-                    className="h-full object-contain transition-transform duration-1000 cubic-bezier group-hover:scale-110"
-                  />
+             <img
+  src={wine.img.includes('cloudinary.com') 
+    ? wine.img.replace('/upload/', '/upload/e_trim/w_600,h_900,c_pad,b_transparent/') 
+    : wine.img}
+  alt={getLangValue(wine, "name")}
+  className="h-full object-contain transition-transform duration-1000 cubic-bezier group-hover:scale-110"
+/>
                   <div className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                     <span className="text-[#1a1a1a] text-[10px] uppercase tracking-widest font-bold border-b border-[#1a1a1a] pb-1">
                       {t.explore}
@@ -171,11 +173,13 @@ export default function AllWines() {
                         -{discount}%
                       </div>
                     )}
-                    <img
-                      src={wine.img}
-                      alt={getLangValue(wine, "name")}
-                      className="h-full object-contain transition-transform duration-1000 group-hover:scale-110"
-                    />
+                   <img
+  src={wine.img.includes('cloudinary.com') 
+    ? wine.img.replace('/upload/', '/upload/e_trim/w_600,h_900,c_pad,b_transparent/') 
+    : wine.img}
+  alt={getLangValue(wine, "name")}
+  className="h-full object-contain transition-transform duration-1000 cubic-bezier group-hover:scale-110"
+/>
                   </div>
                   <div className="mt-6 text-center">
                     <div className="flex items-center justify-center gap-3 mb-2">

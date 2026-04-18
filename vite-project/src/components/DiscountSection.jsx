@@ -108,12 +108,15 @@ export default function DiscountedWinesSwiper() {
                       {discount}% {t.off}
                     </div>
                   )}
-                  <img 
-                    src={slide.img} 
-                    alt={displayName} 
-                    loading="lazy"
-                    className="h-full w-full object-contain transition-transform duration-1000 group-hover:scale-105" 
-                  />
+                <img 
+  // ეს ხაზი ავტომატურად ამუშავებს Cloudinary-ს ლინკს
+  src={slide.img.includes('cloudinary.com') 
+    ? slide.img.replace('/upload/', '/upload/e_trim/w_600,h_900,c_pad,b_transparent/') 
+    : slide.img} 
+  alt={displayName} 
+  loading="lazy"
+  className="h-full w-full object-contain transition-transform duration-1000 group-hover:scale-105" 
+/>
                 </div>
 
                 <div className="flex-1 flex flex-col text-center px-4 py-6 items-center">

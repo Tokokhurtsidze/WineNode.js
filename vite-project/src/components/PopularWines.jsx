@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
@@ -39,7 +38,6 @@ export default function PopularWines() {
             ...doc.data(),
           }));
           setSlides(winesData);
-          // ქეშირება მომავალი ვიზიტებისთვის
           localStorage.setItem("popularWines", JSON.stringify(winesData));
         } else {
           const saved = JSON.parse(localStorage.getItem("popularWines")) || [];
@@ -57,36 +55,40 @@ export default function PopularWines() {
   return (
     <section className="w-full bg-[#fdfdfd] py-24 px-4 sm:px-8 font-serif">
       <div className="flex flex-col items-center mb-20">
-        <span className="text-[#5b1f1f] text-xs uppercase tracking-[0.5em] mb-4 font-semibold opacity-80">{t.badge}</span>
+        <span className="text-[#5b1f1f] text-xs uppercase tracking-[0.5em] mb-4 font-semibold opacity-80">
+          {t.badge}
+        </span>
         <h2 className="text-3xl md:text-5xl font-light text-[#1a1a1a] uppercase tracking-[0.1em] text-center"
             dangerouslySetInnerHTML={{ __html: t.title }}>
         </h2>
         <div className="w-16 h-[1px] bg-[#5b1f1f]/30 mt-8"></div>
       </div>
 
-      <div className="max-w-[1200px] mx-auto grid grid-cols-2 sm:flex sm:flex-wrap gap-y-16 gap-x-4 sm:gap-x-10 justify-items-center justify-center">
+      {/* grid-cols-2 მობილურისთვის, lg:grid-cols-5 კომპიუტერისთვის */}
+      <div className="max-w-[1240px] mx-auto grid grid-cols-2 lg:grid-cols-5 gap-y-16 gap-x-4 lg:gap-x-6 justify-items-center justify-center">
         {slides.length === 0 && (
-          <p className="text-gray-400 italic">{t.empty}</p>
+          <p className="text-gray-400 italic col-span-full">{t.empty}</p>
         )}
 
         {slides.map((slide) => {
-          // ენის მიხედვით შესაბამისი ველის შერჩევა
           const displayName = lang === "EN" ? slide.name : slide[`name_${lang.toLowerCase()}`] || slide.name;
 
           return (
             <article
               key={slide.id}
               onClick={() => navigate(`/wine/${slide.id}`)}
-              className="group cursor-pointer flex flex-col items-center w-[160px] sm:w-[220px] md:w-[260px]"
+              className="group cursor-pointer flex flex-col items-center w-full max-w-[240px]"
             >
               <div className="relative w-full aspect-[2/3] bg-white flex items-center justify-center p-6 
                               border border-transparent transition-all duration-700 ease-in-out
-                              group-hover:border-[#5b1f1f]/20 group-hover:shadow-sm">
+                              group-hover:border-[#5b1f1f]/20 group-hover:shadow-sm overflow-hidden">
                 
                 <div className="absolute inset-0 bg-[#5b1f1f]/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 
                 <img
-                  src={slide.img}
+                  src={slide.img.includes('cloudinary.com') 
+                    ? slide.img.replace('/upload/', '/upload/e_trim/w_600,h_900,c_pad,b_transparent/') 
+                    : slide.img}
                   alt={displayName}
                   loading="lazy"
                   className="h-[85%] object-contain transition-transform duration-1000 ease-out 
@@ -95,8 +97,8 @@ export default function PopularWines() {
               </div>
 
               <div className="mt-8 text-center px-2 flex flex-col items-center gap-3">
-                <h3 className="text-[#1a1a1a] text-base md:text-lg font-medium tracking-tight leading-tight 
-                               group-hover:text-[#5b1f1f] transition-colors duration-500">
+                <h3 className="text-[#1a1a1a] text-sm md:text-base font-medium tracking-tight leading-tight 
+                               group-hover:text-[#5b1f1f] transition-colors duration-500 min-h-[40px] flex items-center">
                   {displayName}
                 </h3>
                 
