@@ -36,7 +36,7 @@ const Partners = () => {
   if (partners.length === 0) return null;
 
   return (
-    <section className="py-24 bg-white overflow-hidden font-serif">
+    <section className="py-24 bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 overflow-hidden font-serif transition-colors duration-300">
       <div className="max-w-[1440px] mx-auto px-6 mb-16 text-center">
         <span className="text-[10px] uppercase tracking-[0.5em] text-[#5b1f1f] font-bold mb-4 block animate-fadeIn">
           {t.badge}

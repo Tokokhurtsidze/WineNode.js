@@ -113,7 +113,7 @@ export default function WineDetails() {
   };
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center py-12 px-4 sm:px-8 font-serif relative">
+    <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 flex flex-col items-center py-12 px-4 sm:px-8 font-serif relative transition-colors duration-300">
       {/* SeoManager მართავს დინამიურ Title, Meta და Hreflang ლინკებს ID-ს ჩათვლით */}
       <SeoManager 
         title={`${displayName} - Lamiani`} 

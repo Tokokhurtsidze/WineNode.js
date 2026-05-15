@@ -30,7 +30,7 @@ export function FullImageOne() {
   const altText = data[`title_${lang.toLowerCase()}`] || data.title || "Vineyard Panorama";
 
   return (
-    <section className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden border-y border-gray-100">
+    <section className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden border-y border-gray-100 dark:border-white/10">
       <div className="absolute inset-0 scale-110">
         <img
           src={data.img}

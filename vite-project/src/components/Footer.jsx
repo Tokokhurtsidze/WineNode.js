@@ -66,7 +66,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#1a1a1a] text-white pt-20 pb-10 px-6 md:px-12 border-t border-white/5 font-serif" role="contentinfo">
+    <footer className="bg-[#1a1a1a] dark:bg-[#0B0E14] text-white dark:text-[#D9D2C6] pt-20 pb-10 px-6 md:px-12 border-t border-white/5 dark:border-[#B89968]/15 font-serif transition-colors duration-400" role="contentinfo">
       <script type="application/ld+json">
         {JSON.stringify(businessSchema)}
       </script>
@@ -76,10 +76,10 @@ const Footer = () => {
           
           {/* BRAND SECTION */}
           <div className="space-y-6">
-            <Link to="/" className="text-3xl font-bold tracking-tighter italic" aria-label="LAMIANI Home">
-              LAMIANI<span className="text-[#5b1f1f]">.</span>
+            <Link to="/" className="text-3xl font-bold tracking-tighter italic dark:text-[#D9D2C6]" aria-label="LAMIANI Home">
+              LAMIANI<span className="text-[#5b1f1f] dark:!text-[#8B0000] dark:[text-shadow:0_0_16px_rgba(139,0,0,0.5)]">.</span>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed font-sans tracking-wide max-w-xs">
+            <p className="text-gray-400 dark:!text-[#D9D2C6] text-sm leading-relaxed font-sans tracking-wide max-w-xs">
               {t.desc}
             </p>
             <div className="flex gap-5 pt-2">
@@ -91,7 +91,7 @@ const Footer = () => {
 
           {/* QUICK LINKS */}
           <div className="space-y-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#5b1f1f] font-bold">{t.navTitle}</h4>
+            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#5b1f1f] dark:!text-[#8B0000] dark:[text-shadow:0_0_12px_rgba(139,0,0,0.4)] font-bold">{t.navTitle}</h4>
             <nav className="flex flex-col gap-3 font-sans text-sm" aria-label="Footer Navigation">
               <FooterLink to="/about">{t.nav[0]}</FooterLink>
               <FooterLink to="/wines">{t.nav[1]}</FooterLink>
@@ -102,38 +102,41 @@ const Footer = () => {
 
           {/* CONTACT INFO */}
           <div className="space-y-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#5b1f1f] font-bold">{t.contactTitle}</h4>
-            <div className="flex flex-col gap-4 font-sans text-sm text-gray-400">
-              <a href="mailto:rklamiani@gmail.com" className="flex items-center gap-3 hover:text-white transition-all group" aria-label="Send us an email">
-                <Mail size={14} className="text-[#5b1f1f] group-hover:scale-110 transition-transform" /> rklamiani@gmail.com
+            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#5b1f1f] dark:!text-[#8B0000] dark:[text-shadow:0_0_12px_rgba(139,0,0,0.4)] font-bold">{t.contactTitle}</h4>
+            <div className="flex flex-col gap-4 font-sans text-sm text-gray-400 dark:!text-[#D9D2C6]">
+              <a href="mailto:rklamiani@gmail.com" className="flex items-center gap-3 hover:text-white dark:hover:!text-[#D9D2C6] transition-all group" aria-label="Send us an email">
+                <Mail size={14} className="text-[#5b1f1f] dark:!text-[#8B0000] dark:[filter:drop-shadow(0_0_6px_rgba(139,0,0,0.5))] group-hover:scale-110 transition-transform" /> rklamiani@gmail.com
               </a>
-              <a href="tel:+995599472067" className="flex items-center gap-3 hover:text-white transition-all group" aria-label="Call us">
-                <Phone size={14} className="text-[#5b1f1f] group-hover:scale-110 transition-transform" /> +995 599 47 20 67
+              <a href="tel:+995599472067" className="flex items-center gap-3 hover:text-white dark:hover:!text-[#D9D2C6] transition-all group" aria-label="Call us">
+                <Phone size={14} className="text-[#5b1f1f] dark:!text-[#8B0000] dark:[filter:drop-shadow(0_0_6px_rgba(139,0,0,0.5))] group-hover:scale-110 transition-transform" /> +995 599 47 20 67
               </a>
             </div>
           </div>
 
           {/* LOCATION */}
           <div className="space-y-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#5b1f1f] font-bold">{t.locationTitle}</h4>
-            <address className="not-italic font-sans text-sm text-gray-400 leading-relaxed">
+            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#5b1f1f] dark:!text-[#8B0000] dark:[text-shadow:0_0_12px_rgba(139,0,0,0.4)] font-bold">{t.locationTitle}</h4>
+            <address className="not-italic font-sans text-sm text-gray-400 dark:!text-[#D9D2C6] leading-relaxed">
               {t.address}
             </address>
             <div className="flex items-center gap-2 mt-2">
               <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-              <p className="font-sans text-[10px] text-gray-500 italic uppercase tracking-wider">
+              <p className="font-sans text-[10px] text-gray-500 dark:!text-[#D9D2C6]/80 italic uppercase tracking-wider">
                 {t.hours}
               </p>
             </div>
           </div>
         </div>
 
+        {/* BRUSHED BRASS DIVIDER */}
+        <div className="h-px w-full bg-white/5 dark:bg-gradient-to-r dark:from-transparent dark:via-[#B89968]/35 dark:to-transparent mb-10" aria-hidden="true"></div>
+
         {/* BOTTOM LINE */}
-        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] tracking-[0.2em] text-gray-500 font-sans uppercase">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] tracking-[0.2em] text-gray-500 dark:!text-[#888880] font-sans uppercase">
           <p>© 2026 LAMIANI — {t.rights}</p>
           <div className="flex gap-8">
-            <Link to="/privacy" className="hover:text-white transition-colors underline-offset-4 hover:underline">{t.policy}</Link>
-            <Link to="/terms" className="hover:text-white transition-colors underline-offset-4 hover:underline">{t.terms}</Link>
+            <Link to="/privacy" className="hover:text-white dark:hover:!text-[#D9D2C6] transition-colors underline-offset-4 hover:underline">{t.policy}</Link>
+            <Link to="/terms" className="hover:text-white dark:hover:!text-[#D9D2C6] transition-colors underline-offset-4 hover:underline">{t.terms}</Link>
           </div>
         </div>
       </div>
@@ -143,18 +146,18 @@ const Footer = () => {
 
 // დამხმარე კომპონენტები უცვლელია, მაგრამ SocialLink-ში დამატებულია rel ატრიბუტები
 const FooterLink = ({ to, children }) => (
-  <Link to={to} className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block underline-offset-4 hover:underline">
+  <Link to={to} className="text-gray-400 dark:!text-[#D9D2C6] hover:text-white dark:hover:!text-[#D9D2C6] hover:translate-x-1 transition-all duration-300 inline-block underline-offset-4 hover:underline">
     {children}
   </Link>
 );
 
 const SocialLink = ({ icon, href, ariaLabel }) => (
-  <a 
-    href={href} 
-    target="_blank" 
-    rel="noopener noreferrer" // მნიშვნელოვანია SEO და უსაფრთხოებისთვის
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
     aria-label={ariaLabel}
-    className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-gray-400 hover:bg-[#5b1f1f] hover:border-[#5b1f1f] hover:text-white transition-all duration-500 shadow-sm"
+    className="w-9 h-9 border border-white/10 dark:!border-[#B89968]/45 rounded-full flex items-center justify-center text-gray-400 dark:!text-[#D9D2C6] hover:bg-[#5b1f1f] dark:hover:!bg-transparent hover:border-[#5b1f1f] dark:hover:!border-[#B89968] hover:text-white dark:hover:!text-[#D9D2C6] dark:[box-shadow:0_0_14px_rgba(184,153,104,0.18),inset_0_0_8px_rgba(184,153,104,0.08)] dark:hover:[box-shadow:0_0_22px_rgba(184,153,104,0.4),inset_0_0_10px_rgba(184,153,104,0.15)] transition-all duration-500 shadow-sm"
   >
     {icon}
   </a>

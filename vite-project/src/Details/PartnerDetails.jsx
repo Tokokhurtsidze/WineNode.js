@@ -92,7 +92,7 @@ export default function PartnerDetails() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center py-10 px-4 sm:px-8 font-serif relative">
+    <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 flex flex-col items-center py-10 px-4 sm:px-8 font-serif relative transition-colors duration-300">
       {/* SEO & Meta მართვა SeoManager-ით */}
       <SeoManager
         title={`${displayName} - Lamiani Partners`} 

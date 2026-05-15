@@ -79,7 +79,7 @@ export default function ContactUs() {
   };
 
   return (
-    <section ref={sectionRef} className="min-h-screen pt-32 pb-24 px-6 bg-white font-serif">
+    <section ref={sectionRef} className="min-h-screen pt-32 pb-24 px-6 bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 font-serif transition-colors duration-300">
       {/* ახალი SEO მენეჯერი - Title, Meta და Hreflang ავტომატიზაცია */}
       <SeoManager 
         title={t.seoTitle} 
@@ -153,10 +153,10 @@ export default function ContactUs() {
 
 function ContactCard({ icon, title, detail, link }) {
   const content = (
-    <div className="p-6 bg-gray-50/50 border border-gray-100 rounded-xl hover:bg-white hover:shadow-xl hover:shadow-[#5b1f1f]/5 transition-all duration-500 group">
-      <div className="text-[#5b1f1f] mb-4 group-hover:scale-110 transition-transform duration-500">{icon}</div>
-      <h4 className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-2">{title}</h4>
-      <p className="text-[#1a1a1a] font-medium break-words">{detail}</p>
+    <div className="p-6 bg-gray-50/50 dark:!bg-[#12151B] border border-gray-100 dark:!border-[#B89968]/15 rounded-xl hover:bg-white dark:hover:!bg-[#181C25] hover:shadow-xl hover:shadow-[#5b1f1f]/5 dark:hover:!border-[#B89968]/40 dark:hover:[box-shadow:0_12px_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(184,153,104,0.12)_inset] transition-all duration-500 group">
+      <div className="text-[#5b1f1f] dark:!text-[#5b1f1f] dark:![text-shadow:none] mb-4 group-hover:scale-110 transition-transform duration-500">{icon}</div>
+      <h4 className="text-[10px] uppercase tracking-widest text-gray-400 dark:!text-[#888880] font-bold mb-2">{title}</h4>
+      <p className="text-[#1a1a1a] dark:!text-[#D9D2C6] font-medium break-words">{detail}</p>
     </div>
   );
 

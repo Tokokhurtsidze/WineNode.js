@@ -58,7 +58,7 @@ export default function Partners() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-24 pb-20 px-6 font-serif">
+    <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 pt-24 pb-20 px-6 font-serif transition-colors duration-300">
       {/* SeoManager მართავს Title, Meta-ს და Hreflang ლინკებს */}
       <SeoManager 
         title={t.seoTitle} 

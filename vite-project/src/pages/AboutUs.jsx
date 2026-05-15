@@ -47,7 +47,7 @@ export default function AboutUs() {
   const t = translations[lang];
 
   return (
-    <div className="min-h-screen bg-white font-serif">
+    <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 font-serif transition-colors duration-300">
       {/* აქ ჩაჯდა SeoManager, რომელიც Title-საც მიხედავს და Hreflang-საც */}
       <SeoManager
         title={t.seoTitle} 

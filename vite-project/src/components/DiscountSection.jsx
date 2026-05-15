@@ -81,10 +81,14 @@ export default function DiscountedWinesSwiper() {
         spaceBetween={25}
         virtual
         breakpoints={{
-          0: { slidesPerView: 1.2, spaceBetween: 15 },
+          0:   { slidesPerView: 1.2, spaceBetween: 14 },
+          380: { slidesPerView: 1.4, spaceBetween: 14 },
+          440: { slidesPerView: 1.6, spaceBetween: 16 },
+          520: { slidesPerView: 1.9, spaceBetween: 18 },
+          600: { slidesPerView: 2.1, spaceBetween: 18 },
           640: { slidesPerView: 2.2, spaceBetween: 20 },
-          1024: { slidesPerView: 3, spaceBetween: 25 },
-          1280: { slidesPerView: 4, spaceBetween: 25 },
+          1024:{ slidesPerView: 3,   spaceBetween: 25 },
+          1280:{ slidesPerView: 4,   spaceBetween: 25 },
         }}
         className="pb-12"
       >
@@ -98,11 +102,11 @@ export default function DiscountedWinesSwiper() {
 
           return (
             <SwiperSlide key={slide.id} virtualIndex={slide.id}>
-              <article 
+              <article
                 onClick={() => navigate(`/discounted/${slide.id}`)}
-                className="group flex flex-col w-full h-[480px] cursor-pointer bg-white"
+                className="group flex flex-col w-full h-[400px] min-[440px]:h-[420px] sm:h-[460px] md:h-[480px] cursor-pointer bg-white"
               >
-                <div className="relative w-full h-[320px] bg-[#f9f9f9] flex items-center justify-center p-8 border border-gray-100 transition-all duration-700 group-hover:border-[#5b1f1f]/20 overflow-hidden">
+                <div className="relative w-full h-[240px] min-[440px]:h-[270px] sm:h-[300px] md:h-[320px] bg-[#f9f9f9] flex items-center justify-center p-4 sm:p-6 md:p-8 border border-gray-100 transition-all duration-700 group-hover:border-[#5b1f1f]/20 overflow-hidden">
                   {discount > 0 && (
                     <div className="absolute top-4 left-4 bg-[#5b1f1f] text-white text-[10px] font-bold px-2 py-1 uppercase z-10">
                       {discount}% {t.off}

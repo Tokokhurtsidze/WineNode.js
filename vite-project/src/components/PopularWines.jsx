@@ -53,7 +53,7 @@ export default function PopularWines() {
   }, []);
 
   return (
-    <section className="w-full bg-[#fdfdfd] py-24 px-4 sm:px-8 font-serif">
+    <section className="w-full bg-[#fdfdfd] dark:bg-[#12151B] text-[#1a1a1a] dark:text-gray-200 py-24 px-4 sm:px-8 font-serif transition-colors duration-300">
       <div className="flex flex-col items-center mb-20">
         <span className="text-[#5b1f1f] text-xs uppercase tracking-[0.5em] mb-4 font-semibold opacity-80">
           {t.badge}
@@ -64,8 +64,8 @@ export default function PopularWines() {
         <div className="w-16 h-[1px] bg-[#5b1f1f]/30 mt-8"></div>
       </div>
 
-      {/* grid-cols-2 მობილურისთვის, lg:grid-cols-5 კომპიუტერისთვის */}
-      <div className="max-w-[1240px] mx-auto grid grid-cols-2 lg:grid-cols-5 gap-y-16 gap-x-4 lg:gap-x-6 justify-items-center justify-center">
+      {/* responsive: 2 mobile → 3 sm → 4 md → 5 lg */}
+      <div className="max-w-[1240px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-10 sm:gap-y-12 md:gap-y-14 lg:gap-y-16 gap-x-3 sm:gap-x-4 md:gap-x-5 lg:gap-x-6 justify-items-center justify-center">
         {slides.length === 0 && (
           <p className="text-gray-400 italic col-span-full">{t.empty}</p>
         )}

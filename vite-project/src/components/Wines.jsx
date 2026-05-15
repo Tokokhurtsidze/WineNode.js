@@ -2,7 +2,7 @@ import { popularWinesData } from "../data/wines";
 
 function Wines() {
   return (
-    <section className="py-24 px-10 bg-[#faf7f2]">
+    <section className="py-24 px-10 bg-[#faf7f2] dark:bg-[#12151B] transition-colors duration-300">
       <h2 className="text-4xl font-bold text-center text-[#5b1f1f] mb-16">
         Our Wines
       </h2>

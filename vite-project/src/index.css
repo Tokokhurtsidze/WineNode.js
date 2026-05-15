@@ -2,12 +2,144 @@
 @tailwind components;
 @tailwind utilities;
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-base: #ffffff;
+  --bg-surface-1: #fafafa;
+  --bg-surface-2: #f5f5f5;
+  --bg-surface-3: #efefef;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  --accent-bronze: #b38b59;
+  --accent-bordeaux: #5b1f1f;
+  --border-bronze: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.06);
+}
+
+html.dark {
+  --bg-base: #0B0E14;
+  --bg-surface-1: #12151B;
+  --bg-surface-2: #181C25;
+  --bg-surface-3: #1F2330;
+  --text-primary: #D9D2C6;
+  --text-secondary: #888880;
+  --text-muted: #5A5A52;
+  --accent-bronze: #B89968;
+  --accent-bordeaux: #A04848;
+  --border-bronze: rgba(58, 58, 53, 0.6);
+  --border-subtle: rgba(58, 58, 53, 0.3);
+}
+
+html {
+  background-color: var(--bg-base);
+  transition: background-color 400ms ease;
+}
+
 body {
-   
+  color: var(--text-primary);
+  transition: background-color 400ms ease, color 400ms ease;
+}
+
+html.dark body {
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(58, 58, 53, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 100% 100%, rgba(160, 72, 72, 0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+}
+
+html.dark ::selection {
+  background-color: rgba(184, 153, 104, 0.35);
+  color: #D9D2C6;
+}
+
+html.dark *::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+html.dark *::-webkit-scrollbar-track {
+  background: #0B0E14;
+}
+html.dark *::-webkit-scrollbar-thumb {
+  background: #1F2330;
+  border-radius: 8px;
+  border: 2px solid #0B0E14;
+}
+html.dark *::-webkit-scrollbar-thumb:hover {
+  background: #2A2F3E;
+}
+
+/* ============================================
+   Modern Midnight Vineyard — global dark overrides
+   Slate-charcoal surfaces, ivory text, bronze borders,
+   vibrant brand glow.
+   ============================================ */
+
+/* Wine red brand → lifted bordeaux with lantern glow */
+html.dark .text-\[\#5b1f1f\]   { color: #A04848; text-shadow: 0 0 14px rgba(160, 72, 72, 0.35); }
+html.dark .bg-\[\#5b1f1f\]     {
+  background-color: #A04848;
+  box-shadow: 0 0 24px rgba(160, 72, 72, 0.28), 0 0 0 1px rgba(160, 72, 72, 0.35) inset;
+}
+html.dark .border-\[\#5b1f1f\] { border-color: #A04848; box-shadow: 0 0 14px rgba(160, 72, 72, 0.18); }
+html.dark .text-\[\#2d0a0a\]   { color: #A04848; }
+html.dark .hover\:bg-\[\#7a2a2a\]:hover { background-color: #B25555; }
+
+/* Charcoal text → aged ivory */
+html.dark .text-\[\#1a1a1a\]   { color: #D9D2C6; }
+
+/* Existing gold seed → ivory in dark (no gold text) */
+html.dark .text-\[\#b38b59\]   { color: #D9D2C6; }
+html.dark .text-\[\#333\]      { color: #888880; }
+
+/* Card / surface backgrounds — layered slate
+   Footer/Hero #1a1a1a and pure black untouched */
+html.dark .bg-white            { background-color: #181C25; }
+html.dark .bg-\[\#fdfdfd\]     { background-color: #12151B; }
+html.dark .bg-\[\#faf7f2\]     { background-color: #12151B; }
+html.dark .bg-\[\#f9f9f9\]     { background-color: #12151B; }
+html.dark .bg-gray-50          { background-color: #181C25; }
+html.dark .bg-gray-100         { background-color: #1F2330; }
+
+/* Bronze-gold micro-borders */
+html.dark .border-gray-100     { border-color: rgba(58, 58, 53, 0.5); }
+html.dark .border-gray-200     { border-color: rgba(58, 58, 53, 0.7); }
+
+/* Muted text — bronze-gray tones */
+html.dark .text-gray-400       { color: #888880; }
+html.dark .text-gray-500       { color: #6E6E66; }
+html.dark .text-gray-600       { color: #9A948A; }
+html.dark .text-gray-700       { color: #B5B0A6; }
+html.dark .text-gray-800       { color: #D9D2C6; }
+html.dark .text-black          { color: #D9D2C6; }
+
+/* Atmospheric shadows on cards — deep & slightly cool */
+html.dark .shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(58, 58, 53, 0.25) inset;
+}
+html.dark .shadow,
+html.dark .shadow-md {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.65), 0 1px 0 rgba(58, 58, 53, 0.3) inset;
+}
+html.dark .shadow-lg,
+html.dark .shadow-xl,
+html.dark .shadow-2xl {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.75), 0 1px 0 rgba(58, 58, 53, 0.35) inset;
+}
+
+/* Glass cards — semi-transparent surface with bronze rim */
+html.dark .rounded-2xl.bg-white,
+html.dark .rounded-xl.bg-white {
+  background-color: rgba(24, 28, 37, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(58, 58, 53, 0.5);
 }
 
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-

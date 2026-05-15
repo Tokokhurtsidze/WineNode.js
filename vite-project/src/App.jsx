@@ -12,15 +12,16 @@ import DiscountedWineDetails from "./Details/DiscountedWineDetails";
 import AllWines from "./pages/AllWines";
 import PartnerDetails from "./Details/PartnerDetails";
 import { LanguageProvider, useLanguage } from "./context/LanguageContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
-import ScrollToTop from "./components/ScrollToTop"; 
+import ScrollToTop from "./components/ScrollToTop";
 
 function AppContent() {
   const { lang } = useLanguage();
 
   return (
     <HeadProvider>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 transition-colors duration-300">
         <ScrollToTop />
         
         <Header />
@@ -48,7 +49,9 @@ function AppContent() {
 function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
     </LanguageProvider>
   );
 }
