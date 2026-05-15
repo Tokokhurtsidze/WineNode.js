@@ -95,32 +95,57 @@ export default function DiscountedWineDetails() {
   const displayName = getLangValue(wine, "name");
   const displayDesc = getLangValue(wine, "description");
   const displayType = getLangValue(wine, "type");
+  const priceValidUntil = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split("T")[0];
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Product",
+  const productSchema = {
     name: displayName,
     image: wine.img,
     description: displayDesc,
+    sku: wine.id,
+    mpn: wine.id,
+    category: displayType || "Wine",
+    brand: { "@type": "Brand", name: "LAMIANI" },
+    manufacturer: { "@type": "Organization", name: "LAMIANI" },
+    countryOfOrigin: { "@type": "Country", name: "Georgia" },
     offers: {
       "@type": "Offer",
-      price: wine.newPrice,
+      price: String(wine.newPrice || "").replace(/[^0-9.]/g, ""),
       priceCurrency: "GEL",
       availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      priceValidUntil,
       url: `https://lamiani.ge/discounted/${id}`,
+      seller: { "@type": "Organization", name: "LAMIANI" },
+      ...(wine.oldPrice && {
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          priceType: "https://schema.org/ListPrice",
+          price: String(wine.oldPrice).replace(/[^0-9.]/g, ""),
+          priceCurrency: "GEL",
+        },
+      }),
     },
   };
 
+  const breadcrumbs = [
+    { name: "Home", url: "/" },
+    { name: "Wines", url: "/wines" },
+    { name: displayName, url: `/discounted/${id}` },
+  ];
+
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 flex flex-col items-center py-12 px-4 sm:px-8 font-serif relative transition-colors duration-300">
-      {/* SeoManager მართავს დინამიურ Title, Meta და Hreflang ლინკებს */}
-      <SeoManager 
-        title={`${displayName} - ${wine.discount}% OFF | Lamiani`} 
-        description={displayDesc} 
+      <SeoManager
+        title={`${displayName} — ${wine.discount}% OFF | LAMIANI Wines`}
+        description={displayDesc || `${displayName} on sale at LAMIANI — ${wine.discount}% off premium Georgian wine.`}
         image={wine.img}
+        ogType="product"
+        productSchema={productSchema}
+        breadcrumbs={breadcrumbs}
+        keywords={`${displayName}, discount, sale, ${displayType || "wine"}, Georgian wine, LAMIANI`}
       />
-
-      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
 
       <div className="max-w-[800px] w-full flex flex-col items-center mt-12">
         
@@ -139,7 +164,11 @@ export default function DiscountedWineDetails() {
         <div className="w-full flex justify-center mb-12">
           <img
             src={wine.img}
-            alt={displayName}
+            alt={`${displayName} — ${wine.discount}% off premium Georgian wine`}
+            width="400"
+            height="550"
+            fetchpriority="high"
+            decoding="async"
             className="h-[450px] sm:h-[550px] w-auto object-contain"
           />
         </div>

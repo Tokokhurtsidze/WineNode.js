@@ -3,6 +3,11 @@ import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import SeoManager from "../Seo/SeoManager";
 
+const aboutBreadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "About", url: "/about" },
+];
+
 import { Link } from "react-router-dom";
 
 const translations = {
@@ -50,8 +55,10 @@ export default function AboutUs() {
     <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 font-serif transition-colors duration-300">
       {/* აქ ჩაჯდა SeoManager, რომელიც Title-საც მიხედავს და Hreflang-საც */}
       <SeoManager
-        title={t.seoTitle} 
-        description={t.p1} 
+        title={t.seoTitle}
+        description={t.p1}
+        keywords="about LAMIANI, Georgian winery story, qvevri heritage, Saperavi, wine tradition"
+        breadcrumbs={aboutBreadcrumbs}
       />
       
       <section className="relative pt-32 pb-20 px-6 max-w-[1200px] mx-auto overflow-hidden">

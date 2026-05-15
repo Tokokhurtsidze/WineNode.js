@@ -70,8 +70,9 @@ export default function PopularWines() {
           <p className="text-gray-400 italic col-span-full">{t.empty}</p>
         )}
 
-        {slides.map((slide) => {
+        {slides.map((slide, slideIdx) => {
           const displayName = lang === "EN" ? slide.name : slide[`name_${lang.toLowerCase()}`] || slide.name;
+          const isAboveFold = slideIdx < 2;
 
           return (
             <article
@@ -86,12 +87,16 @@ export default function PopularWines() {
                 <div className="absolute inset-0 bg-[#5b1f1f]/[0.01] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 
                 <img
-                  src={slide.img.includes('cloudinary.com') 
-                    ? slide.img.replace('/upload/', '/upload/e_trim/w_600,h_900,c_pad,b_transparent/') 
+                  src={slide.img.includes('cloudinary.com')
+                    ? slide.img.replace('/upload/', '/upload/e_trim/w_600,h_900,c_pad,b_transparent/')
                     : slide.img}
-                  alt={displayName}
-                  loading="lazy"
-                  className="h-[85%] object-contain transition-transform duration-1000 ease-out 
+                  alt={`${displayName} — Georgian wine bottle from LAMIANI`}
+                  width="240"
+                  height="360"
+                  loading={isAboveFold ? "eager" : "lazy"}
+                  fetchpriority={isAboveFold ? "high" : "auto"}
+                  decoding="async"
+                  className="h-[85%] object-contain transition-transform duration-1000 ease-out
                              group-hover:scale-105 drop-shadow-xl"
                 />
               </div>

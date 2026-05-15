@@ -86,43 +86,53 @@ export default function WineDetails() {
 
   const displayName = getLangValue(wine, "name");
   const displayDesc = getLangValue(wine, "description");
+  const displayType = getLangValue(wine, "type");
+  const priceNumeric = wine.price ? String(wine.price).replace(/[^0-9.]/g, "") : null;
+  const priceValidUntil = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+    .toISOString()
+    .split("T")[0];
 
-  const breadcrumbData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": t.home, "item": "https://lamiani.ge/" },
-      { "@type": "ListItem", "position": 2, "name": t.popular, "item": "https://lamiani.ge/all-wines" },
-      { "@type": "ListItem", "position": 3, "name": displayName, "item": `https://lamiani.ge/wine/${wine.id}` }
-    ]
+  const productSchema = {
+    name: displayName,
+    image: wine.img,
+    description: displayDesc,
+    sku: wine.id,
+    mpn: wine.id,
+    category: displayType || "Wine",
+    brand: { "@type": "Brand", name: "LAMIANI" },
+    manufacturer: { "@type": "Organization", name: "LAMIANI" },
+    countryOfOrigin: { "@type": "Country", name: "Georgia" },
+    ...(priceNumeric && {
+      offers: {
+        "@type": "Offer",
+        price: priceNumeric,
+        priceCurrency: "GEL",
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        priceValidUntil,
+        url: `https://lamiani.ge/wine/${wine.id}`,
+        seller: { "@type": "Organization", name: "LAMIANI" },
+      },
+    }),
   };
 
-  const wineStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": displayName,
-    "image": wine.img,
-    "description": displayDesc,
-    "offers": wine.price ? {
-      "@type": "Offer",
-      "price": wine.price.toString().replace(/[^0-9.]/g, ""),
-      "priceCurrency": "GEL",
-      "availability": "https://schema.org/InStock",
-      "url": `https://lamiani.ge/wine/${wine.id}`
-    } : undefined
-  };
+  const breadcrumbs = [
+    { name: t.home, url: "/" },
+    { name: t.popular, url: "/wines" },
+    { name: displayName, url: `/wine/${wine.id}` },
+  ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 flex flex-col items-center py-12 px-4 sm:px-8 font-serif relative transition-colors duration-300">
-      {/* SeoManager მართავს დინამიურ Title, Meta და Hreflang ლინკებს ID-ს ჩათვლით */}
-      <SeoManager 
-        title={`${displayName} - Lamiani`} 
-        description={displayDesc}
+      <SeoManager
+        title={`${displayName} | LAMIANI Wines`}
+        description={displayDesc || `${displayName} — premium Georgian wine from LAMIANI.`}
         image={wine.img}
+        ogType="product"
+        productSchema={productSchema}
+        breadcrumbs={breadcrumbs}
+        keywords={`${displayName}, ${displayType || "wine"}, Georgian wine, LAMIANI, ${wine.id}`}
       />
-
-      <script type="application/ld+json">{JSON.stringify(breadcrumbData)}</script>
-      <script type="application/ld+json">{JSON.stringify(wineStructuredData)}</script>
 
       {/* Back Button */}
       {/* <button
@@ -144,7 +154,11 @@ export default function WineDetails() {
         <div className="w-full flex justify-center mb-12">
           <img
             src={wine.img}
-            alt={displayName}
+            alt={`${displayName} — premium Georgian wine bottle`}
+            width="400"
+            height="550"
+            fetchpriority="high"
+            decoding="async"
             className="h-[450px] sm:h-[550px] w-auto object-contain transition-transform duration-700 hover:scale-105"
           />
         </div>

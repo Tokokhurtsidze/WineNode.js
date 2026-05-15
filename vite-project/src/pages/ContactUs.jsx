@@ -68,22 +68,52 @@ export default function ContactUs() {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Lamiani",
+    "@type": "LocalBusiness",
+    "@id": "https://lamiani.ge/#business",
+    "name": "LAMIANI",
     "url": "https://lamiani.ge/contact",
+    "image": "https://lamiani.ge/preview-image.jpg",
+    "logo": "https://lamiani.ge/new.png",
+    "telephone": "+995-599-47-20-67",
+    "email": "rklamiani@gmail.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "David Gamrekeli Street 3",
+      "addressLocality": "Tbilisi",
+      "addressCountry": "GE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 41.6938,
+      "longitude": 44.8015
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "11:00",
+      "closes": "23:00"
+    }],
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+995599472067",
-      "contactType": "Customer Service"
+      "telephone": "+995-599-47-20-67",
+      "contactType": "Customer Service",
+      "areaServed": "GE",
+      "availableLanguage": ["Georgian", "English", "Russian"]
     }
   };
 
   return (
     <section ref={sectionRef} className="min-h-screen pt-32 pb-24 px-6 bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 font-serif transition-colors duration-300">
       {/* ახალი SEO მენეჯერი - Title, Meta და Hreflang ავტომატიზაცია */}
-      <SeoManager 
-        title={t.seoTitle} 
-        description={t.seoDesc} 
+      <SeoManager
+        title={t.seoTitle}
+        description={t.seoDesc}
+        keywords="LAMIANI contact, Georgian winery contact, Tbilisi wine shop, email, phone"
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Contact", url: "/contact" },
+        ]}
       />
       
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>

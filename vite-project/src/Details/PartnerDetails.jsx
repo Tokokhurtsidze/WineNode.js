@@ -81,36 +81,50 @@ export default function PartnerDetails() {
   const displayName = getLangValue(partner, "name");
   const displayDesc = getLangValue(partner, "description");
 
-  const breadcrumbData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": t.home, "item": "https://lamiani.ge/" },
-      { "@type": "ListItem", "position": 2, "name": t.partners, "item": "https://lamiani.ge/partners" },
-      { "@type": "ListItem", "position": 3, "name": displayName, "item": `https://lamiani.ge/partner/${partner.id}` }
-    ]
+  const breadcrumbs = [
+    { name: t.home, url: "/" },
+    { name: t.partners, url: "/partners" },
+    { name: displayName, url: `/partner/${partner.id}` },
+  ];
+
+  const articleSchema = {
+    headline: displayName,
+    description: displayDesc,
+    image: partner.img,
+    author: { "@type": "Organization", name: "LAMIANI" },
+    publisher: {
+      "@type": "Organization",
+      name: "LAMIANI",
+      logo: { "@type": "ImageObject", url: "https://lamiani.ge/new.png" },
+    },
+    mainEntityOfPage: `https://lamiani.ge/partner/${partner.id}`,
   };
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 flex flex-col items-center py-10 px-4 sm:px-8 font-serif relative transition-colors duration-300">
-      {/* SEO & Meta მართვა SeoManager-ით */}
       <SeoManager
-        title={`${displayName} - Lamiani Partners`} 
-        description={displayDesc} 
+        title={`${displayName} | LAMIANI Partner Estates`}
+        description={displayDesc || `${displayName} — partner estate of LAMIANI, premium Georgian winery.`}
         image={partner.img}
+        ogType="article"
+        breadcrumbs={breadcrumbs}
+        articleSchema={articleSchema}
+        keywords={`${displayName}, partner, winery, Georgian wine, LAMIANI`}
       />
-      
-      <script type="application/ld+json">{JSON.stringify(breadcrumbData)}</script>
 
       <div className="max-w-[1000px] w-full flex flex-col gap-12 mt-16">
         
         {/* ზედა სექცია: ლოგო და სათაური */}
         <div className="flex flex-col items-center text-center">
           <div className="w-48 mb-6">
-             <img 
-               src={partner.img} 
-               alt={displayName} 
-               className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110" 
+             <img
+               src={partner.img}
+               alt={`${displayName} winery logo`}
+               width="200"
+               height="200"
+               fetchpriority="high"
+               decoding="async"
+               className="w-full h-auto object-contain transition-transform duration-500 hover:scale-110"
              />
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-[#1a1a1a] uppercase tracking-[0.2em] mb-4">

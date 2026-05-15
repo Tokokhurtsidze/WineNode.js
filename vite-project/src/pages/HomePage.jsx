@@ -32,32 +32,55 @@ export default function HomePage({ lang }) {
     "@type": "Organization",
     "name": "Lamiani",
     "url": "https://lamiani.ge/",
-    "logo": "https://cdn.pixabay.com/photo/2019/08/13/09/37/village-4402925_640.png",
+    "logo": "https://lamiani.ge/new.png",
+    "image": "https://lamiani.ge/preview-image.jpg",
     "sameAs": [
       "https://www.facebook.com/Lamiani",
-      "https://www.instagram.com/Lamiani",
-      "https://twitter.com/Lamiani"
+      "https://www.instagram.com/Lamiani"
     ],
     "description": t.description,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "David Gamrekeli Street 3",
+      "addressLocality": "Tbilisi",
+      "addressCountry": "GE"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+995 555 123456",
+      "telephone": "+995-599-47-20-67",
+      "email": "rklamiani@gmail.com",
       "contactType": "Customer Service",
-      "areaServed": "GE"
+      "areaServed": "GE",
+      "availableLanguage": ["Georgian", "English", "Russian"]
+    }
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "LAMIANI",
+    "url": "https://lamiani.ge/",
+    "inLanguage": ["ka-GE", "en-US", "ru-RU"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://lamiani.ge/wines?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
   };
 
   return (
     <div className="w-full overflow-x-hidden">
       {/* SeoManager მართავს Title, Meta, Canonical და Hreflang ლინკებს */}
-      <SeoManager 
-        title={t.title} 
+      <SeoManager
+        title={t.title}
         description={t.description}
-        image="https://cdn.pixabay.com/photo/2019/08/13/09/37/village-4402925_640.png"
+        image="https://lamiani.ge/preview-image.jpg"
+        keywords="LAMIANI, Georgian wine, premium wine, Saperavi, Rkatsiteli, Kindzmarauli, qvevri, winery Tbilisi, ქართული ღვინო, ლამიანი"
       />
 
-      {/* JSON-LD Structured Data - ვტოვებთ ორგანიზაციისთვის */}
+      {/* JSON-LD Structured Data */}
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      <script type="application/ld+json">{JSON.stringify(websiteSchema)}</script>
 
       {/* Page Content */}
       <Hero/>

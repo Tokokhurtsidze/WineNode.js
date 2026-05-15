@@ -91,9 +91,41 @@ export default function AllWines() {
     );
   };
 
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": t.popularTitle,
+    "numberOfItems": popularWines.length + discountedWines.length,
+    "itemListElement": [
+      ...popularWines.map((w, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `https://lamiani.ge/wine/${w.id}`,
+        name: getLangValue(w, "name"),
+      })),
+      ...discountedWines.map((w, i) => ({
+        "@type": "ListItem",
+        position: popularWines.length + i + 1,
+        url: `https://lamiani.ge/discounted/${w.id}`,
+        name: getLangValue(w, "name"),
+      })),
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 font-serif pt-24 pb-20 px-6 transition-colors duration-300">
-      <SeoManager title={t.title} description={t.description} />
+      <SeoManager
+        title={t.title}
+        description={t.description}
+        keywords="Georgian wines, wine collection, Saperavi, Rkatsiteli, Kindzmarauli, premium wine, LAMIANI"
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: t.popularTitle, url: "/wines" },
+        ]}
+      />
+      {(popularWines.length > 0 || discountedWines.length > 0) && (
+        <script type="application/ld+json">{JSON.stringify(itemListSchema)}</script>
+      )}
 
       <div className="max-w-[1200px] mx-auto flex flex-col gap-24">
         

@@ -2,35 +2,120 @@
 <html lang="ka">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./public/new.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="/new.png" />
+    <link rel="apple-touch-icon" href="/new.png" />
+    <link rel="shortcut icon" href="/new.png" />
+
+    <!-- Primary Meta -->
     <title>LAMIANI | საუკეთესო ქართული ღვინოების პრემიუმ კოლექცია</title>
     <meta name="title" content="LAMIANI | საუკეთესო ქართული ღვინოების პრემიუმ კოლექცია" />
     <meta name="description" content="აღმოაჩინეთ უნიკალური ქართული ღვინოები LAMIANI-სგან. პრემიუმ ხარისხის მარნები, სპეციალური შეთავაზებები და საუკეთესო ვენახების ისტორია." />
     <meta name="keywords" content="ღვინო, ქართული ღვინო, ლამიანი, მარანი, ვენახი, საფერავი, რქაწითელი, wine, georgian wine, lamiani, winery, cellar, vineyard, saperavi, rkatsiteli, вино, грузинское вино, ламиани, винный погреб, виноградник, саперави, ркацители" />
     <meta name="author" content="LAMIANI" />
-
-    <link rel="alternate" href="https://lamiani.ge/" hreflang="ka" />
-    <link rel="alternate" href="https://lamiani.ge/en" hreflang="en" />
-    <link rel="alternate" href="https://lamiani.ge/ru" hreflang="ru" />
-    <link rel="alternate" href="https://lamiani.ge/" hreflang="x-default" />
-    <meta name="robots" content="index, follow" />    
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://lamiani.ge" />
-    <meta property="og:title" content="LAMIANI | Discover Fine Georgian Wines" />
-    <meta property="og:description" content="აღმოაჩინეთ პრემიუმ ხარისხის ქართული ღვინოების შერჩეული კოლექცია." />
-    <meta property="og:image" content="https://lamiani.ge/preview-image.jpg" /> <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://lamiani.ge" />
-    <meta property="twitter:title" content="LAMIANI | Premium Wine Selection" />
-    <meta property="twitter:description" content="The finest selection of Georgian heritage wines." />
-    <meta property="twitter:image" content="https://lamiani.ge/preview-image.jpg" />
-
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="rating" content="general" />
     <meta name="theme-color" content="#5b1f1f" />
-    <link rel="apple-touch-icon" href="./public/new.png" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="color-scheme" content="light dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Geo -->
+    <meta name="geo.region" content="GE-TB" />
+    <meta name="geo.placename" content="Tbilisi" />
+    <meta name="geo.position" content="41.6938;44.8015" />
+    <meta name="ICBM" content="41.6938, 44.8015" />
+
+    <!-- Hreflang / Alternates -->
+    <link rel="canonical" href="https://lamiani.ge/" />
+    <link rel="alternate" href="https://lamiani.ge/" hreflang="ka" />
+    <link rel="alternate" href="https://lamiani.ge/?lang=EN" hreflang="en" />
+    <link rel="alternate" href="https://lamiani.ge/?lang=RU" hreflang="ru" />
+    <link rel="alternate" href="https://lamiani.ge/" hreflang="x-default" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LAMIANI" />
+    <meta property="og:url" content="https://lamiani.ge/" />
+    <meta property="og:title" content="LAMIANI | Discover Fine Georgian Wines" />
+    <meta property="og:description" content="Discover the finest selection of premium Georgian heritage wines from family wineries." />
+    <meta property="og:image" content="https://lamiani.ge/preview-image.jpg" />
+    <meta property="og:image:secure_url" content="https://lamiani.ge/preview-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="LAMIANI — Premium Georgian Wines" />
+    <meta property="og:locale" content="ka_GE" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lamiani" />
+    <meta name="twitter:creator" content="@lamiani" />
+    <meta name="twitter:url" content="https://lamiani.ge/" />
+    <meta name="twitter:title" content="LAMIANI | Premium Georgian Wine Selection" />
+    <meta name="twitter:description" content="The finest selection of Georgian heritage wines." />
+    <meta name="twitter:image" content="https://lamiani.ge/preview-image.jpg" />
+    <meta name="twitter:image:alt" content="LAMIANI — Premium Georgian Wines" />
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="dns-prefetch" href="https://firestore.googleapis.com" />
+    <link rel="dns-prefetch" href="https://cdn.pixabay.com" />
+
+    <!-- Sitemap discovery -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Organization JSON-LD baked into initial HTML for crawler reliability -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "LAMIANI",
+        "alternateName": "ლამიანი",
+        "url": "https://lamiani.ge/",
+        "logo": "https://lamiani.ge/new.png",
+        "image": "https://lamiani.ge/preview-image.jpg",
+        "description": "Premium Georgian wine marketplace.",
+        "sameAs": [
+          "https://www.facebook.com/Lamiani",
+          "https://www.instagram.com/Lamiani"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "David Gamrekeli Street 3",
+          "addressLocality": "Tbilisi",
+          "addressCountry": "GE"
+        },
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+995-599-47-20-67",
+          "contactType": "Customer Service",
+          "email": "rklamiani@gmail.com",
+          "areaServed": "GE",
+          "availableLanguage": ["Georgian", "English", "Russian"]
+        }]
+      }
+    </script>
+
+    <!-- WebSite + SiteNavigation + Sitelinks Search -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://lamiani.ge/",
+        "name": "LAMIANI",
+        "inLanguage": ["ka-GE", "en-US", "ru-RU"],
+        "publisher": { "@type": "Organization", "name": "LAMIANI", "url": "https://lamiani.ge/" }
+      }
+    </script>
  </head>
   <body>
     <div id="root"></div>

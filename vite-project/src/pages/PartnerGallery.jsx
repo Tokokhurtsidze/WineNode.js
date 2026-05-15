@@ -57,13 +57,33 @@ export default function Partners() {
     return (obj[langField] && obj[langField].trim() !== "") ? obj[langField] : obj[field];
   };
 
+  const partnersItemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: t.badge,
+    numberOfItems: partners.length,
+    itemListElement: partners.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://lamiani.ge/partner/${p.id}`,
+      name: getLangValue(p, "name"),
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-[#0B0E14] text-[#1a1a1a] dark:text-gray-200 pt-24 pb-20 px-6 font-serif transition-colors duration-300">
-      {/* SeoManager მართავს Title, Meta-ს და Hreflang ლინკებს */}
-      <SeoManager 
-        title={t.seoTitle} 
-        description={t.seoDesc} 
+      <SeoManager
+        title={t.seoTitle}
+        description={t.seoDesc}
+        keywords="LAMIANI partners, Georgian wineries, partner estates, wine cellars"
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: t.badge, url: "/partners" },
+        ]}
       />
+      {partners.length > 0 && (
+        <script type="application/ld+json">{JSON.stringify(partnersItemList)}</script>
+      )}
 
       <div className="max-w-[1100px] mx-auto">
         

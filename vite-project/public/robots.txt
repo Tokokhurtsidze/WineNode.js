@@ -1,4 +1,18 @@
+# https://lamiani.ge robots.txt
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api/
 
+# Crawl-friendly defaults
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+Host: https://lamiani.ge
 Sitemap: https://lamiani.ge/sitemap.xml
