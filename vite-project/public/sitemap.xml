@@ -1,51 +1,517 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
   <url>
     <loc>https://lamiani.ge/</loc>
     <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/?lang=EN"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/?lang=RU"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lamiani.ge/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/"/>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
+  <url>
+    <loc>https://lamiani.ge/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
   <url>
     <loc>https://lamiani.ge/about</loc>
     <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/about"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/about?lang=EN"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/about?lang=RU"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/about"/>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://lamiani.ge/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/about"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/about</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/about"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/about"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://lamiani.ge/wines</loc>
     <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wines"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/wines?lang=EN"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/wines?lang=RU"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wines"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wines"/>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
+  <url>
+    <loc>https://lamiani.ge/en/wines</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wines"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wines"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wines"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/wines</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wines"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wines"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wines"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://lamiani.ge/partners</loc>
     <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partners"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/partners?lang=EN"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/partners?lang=RU"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partners"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partners"/>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
+  <url>
+    <loc>https://lamiani.ge/en/partners</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partners"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partners"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partners"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/partners</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partners"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partners"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partners"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://lamiani.ge/contact</loc>
     <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/contact"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/contact?lang=EN"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/contact?lang=RU"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/contact"/>
+    <lastmod>2026-05-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
+  <url>
+    <loc>https://lamiani.ge/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/contact"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/contact</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/contact"/>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/wine/61kdcTMYEFiw27QH7ek2</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/61kdcTMYEFiw27QH7ek2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/61kdcTMYEFiw27QH7ek2"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/61kdcTMYEFiw27QH7ek2"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/wine/61kdcTMYEFiw27QH7ek2</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/61kdcTMYEFiw27QH7ek2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/61kdcTMYEFiw27QH7ek2"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/61kdcTMYEFiw27QH7ek2"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/wine/61kdcTMYEFiw27QH7ek2</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/61kdcTMYEFiw27QH7ek2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/61kdcTMYEFiw27QH7ek2"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/61kdcTMYEFiw27QH7ek2"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/wine/90QxJfRwAuzfdX4GYqQS</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/90QxJfRwAuzfdX4GYqQS"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/90QxJfRwAuzfdX4GYqQS"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/90QxJfRwAuzfdX4GYqQS"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/wine/90QxJfRwAuzfdX4GYqQS</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/90QxJfRwAuzfdX4GYqQS"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/90QxJfRwAuzfdX4GYqQS"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/90QxJfRwAuzfdX4GYqQS"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/wine/90QxJfRwAuzfdX4GYqQS</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/90QxJfRwAuzfdX4GYqQS"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/90QxJfRwAuzfdX4GYqQS"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/90QxJfRwAuzfdX4GYqQS"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/wine/Ka1CvnuR20yH4EuT5jE3</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/Ka1CvnuR20yH4EuT5jE3"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/Ka1CvnuR20yH4EuT5jE3"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/Ka1CvnuR20yH4EuT5jE3"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/wine/Ka1CvnuR20yH4EuT5jE3</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/Ka1CvnuR20yH4EuT5jE3"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/Ka1CvnuR20yH4EuT5jE3"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/Ka1CvnuR20yH4EuT5jE3"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/wine/Ka1CvnuR20yH4EuT5jE3</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/Ka1CvnuR20yH4EuT5jE3"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/Ka1CvnuR20yH4EuT5jE3"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/Ka1CvnuR20yH4EuT5jE3"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/wine/PiC1VMpTZiHrd5yRIcXZ</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/PiC1VMpTZiHrd5yRIcXZ"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/PiC1VMpTZiHrd5yRIcXZ"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/PiC1VMpTZiHrd5yRIcXZ"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/wine/PiC1VMpTZiHrd5yRIcXZ</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/PiC1VMpTZiHrd5yRIcXZ"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/PiC1VMpTZiHrd5yRIcXZ"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/PiC1VMpTZiHrd5yRIcXZ"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/wine/PiC1VMpTZiHrd5yRIcXZ</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/PiC1VMpTZiHrd5yRIcXZ"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/PiC1VMpTZiHrd5yRIcXZ"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/PiC1VMpTZiHrd5yRIcXZ"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/wine/hrNb51pTUWMo4QqwCZiN</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/hrNb51pTUWMo4QqwCZiN"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/hrNb51pTUWMo4QqwCZiN"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/hrNb51pTUWMo4QqwCZiN"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/wine/hrNb51pTUWMo4QqwCZiN</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/hrNb51pTUWMo4QqwCZiN"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/hrNb51pTUWMo4QqwCZiN"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/hrNb51pTUWMo4QqwCZiN"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/wine/hrNb51pTUWMo4QqwCZiN</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/wine/hrNb51pTUWMo4QqwCZiN"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/wine/hrNb51pTUWMo4QqwCZiN"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/wine/hrNb51pTUWMo4QqwCZiN"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/discounted/VTWv5S6Mtj9hQmoWtFNJ</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/VTWv5S6Mtj9hQmoWtFNJ"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/VTWv5S6Mtj9hQmoWtFNJ"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/VTWv5S6Mtj9hQmoWtFNJ"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/discounted/VTWv5S6Mtj9hQmoWtFNJ</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/VTWv5S6Mtj9hQmoWtFNJ"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/VTWv5S6Mtj9hQmoWtFNJ"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/VTWv5S6Mtj9hQmoWtFNJ"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/discounted/VTWv5S6Mtj9hQmoWtFNJ</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/VTWv5S6Mtj9hQmoWtFNJ"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/VTWv5S6Mtj9hQmoWtFNJ"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/VTWv5S6Mtj9hQmoWtFNJ"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/discounted/Yk1ItD2Gxl6vKEOoNbyt</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/Yk1ItD2Gxl6vKEOoNbyt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/Yk1ItD2Gxl6vKEOoNbyt"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/Yk1ItD2Gxl6vKEOoNbyt"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/discounted/Yk1ItD2Gxl6vKEOoNbyt</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/Yk1ItD2Gxl6vKEOoNbyt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/Yk1ItD2Gxl6vKEOoNbyt"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/Yk1ItD2Gxl6vKEOoNbyt"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/discounted/Yk1ItD2Gxl6vKEOoNbyt</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/Yk1ItD2Gxl6vKEOoNbyt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/Yk1ItD2Gxl6vKEOoNbyt"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/Yk1ItD2Gxl6vKEOoNbyt"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/discounted/nhtM16lG80V7bjlGUGIT</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/nhtM16lG80V7bjlGUGIT"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/nhtM16lG80V7bjlGUGIT"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/nhtM16lG80V7bjlGUGIT"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/discounted/nhtM16lG80V7bjlGUGIT</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/nhtM16lG80V7bjlGUGIT"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/nhtM16lG80V7bjlGUGIT"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/nhtM16lG80V7bjlGUGIT"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/discounted/nhtM16lG80V7bjlGUGIT</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/nhtM16lG80V7bjlGUGIT"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/nhtM16lG80V7bjlGUGIT"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/nhtM16lG80V7bjlGUGIT"/>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/discounted/trjFWNLW56hv5CVuth4b</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/trjFWNLW56hv5CVuth4b"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/trjFWNLW56hv5CVuth4b"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/trjFWNLW56hv5CVuth4b"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/discounted/trjFWNLW56hv5CVuth4b</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/trjFWNLW56hv5CVuth4b"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/trjFWNLW56hv5CVuth4b"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/trjFWNLW56hv5CVuth4b"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/discounted/trjFWNLW56hv5CVuth4b</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/trjFWNLW56hv5CVuth4b"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/trjFWNLW56hv5CVuth4b"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/trjFWNLW56hv5CVuth4b"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/discounted/xpmmGcDjmFR7E7BWEm3A</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/xpmmGcDjmFR7E7BWEm3A"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/xpmmGcDjmFR7E7BWEm3A"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/xpmmGcDjmFR7E7BWEm3A"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/discounted/xpmmGcDjmFR7E7BWEm3A</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/xpmmGcDjmFR7E7BWEm3A"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/xpmmGcDjmFR7E7BWEm3A"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/xpmmGcDjmFR7E7BWEm3A"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/discounted/xpmmGcDjmFR7E7BWEm3A</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/discounted/xpmmGcDjmFR7E7BWEm3A"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/discounted/xpmmGcDjmFR7E7BWEm3A"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/discounted/xpmmGcDjmFR7E7BWEm3A"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/partner/6gVtmLqrTDyyluzZLece</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/6gVtmLqrTDyyluzZLece"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/6gVtmLqrTDyyluzZLece"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/6gVtmLqrTDyyluzZLece"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/partner/6gVtmLqrTDyyluzZLece</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/6gVtmLqrTDyyluzZLece"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/6gVtmLqrTDyyluzZLece"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/6gVtmLqrTDyyluzZLece"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/partner/6gVtmLqrTDyyluzZLece</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/6gVtmLqrTDyyluzZLece"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/6gVtmLqrTDyyluzZLece"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/6gVtmLqrTDyyluzZLece"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/partner/ClioVmhjpAQOrl8lc3pA</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/ClioVmhjpAQOrl8lc3pA"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/ClioVmhjpAQOrl8lc3pA"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/ClioVmhjpAQOrl8lc3pA"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/partner/ClioVmhjpAQOrl8lc3pA</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/ClioVmhjpAQOrl8lc3pA"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/ClioVmhjpAQOrl8lc3pA"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/ClioVmhjpAQOrl8lc3pA"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/partner/ClioVmhjpAQOrl8lc3pA</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/ClioVmhjpAQOrl8lc3pA"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/ClioVmhjpAQOrl8lc3pA"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/ClioVmhjpAQOrl8lc3pA"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/partner/CqybwbQI31BlJ4KxS1PQ</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/CqybwbQI31BlJ4KxS1PQ"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/CqybwbQI31BlJ4KxS1PQ"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/CqybwbQI31BlJ4KxS1PQ"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/partner/CqybwbQI31BlJ4KxS1PQ</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/CqybwbQI31BlJ4KxS1PQ"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/CqybwbQI31BlJ4KxS1PQ"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/CqybwbQI31BlJ4KxS1PQ"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/partner/CqybwbQI31BlJ4KxS1PQ</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/CqybwbQI31BlJ4KxS1PQ"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/CqybwbQI31BlJ4KxS1PQ"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/CqybwbQI31BlJ4KxS1PQ"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/partner/dO42Ya2zk82qR9C5Mtfa</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/dO42Ya2zk82qR9C5Mtfa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/dO42Ya2zk82qR9C5Mtfa"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/dO42Ya2zk82qR9C5Mtfa"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/en/partner/dO42Ya2zk82qR9C5Mtfa</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/dO42Ya2zk82qR9C5Mtfa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/dO42Ya2zk82qR9C5Mtfa"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/dO42Ya2zk82qR9C5Mtfa"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lamiani.ge/ru/partner/dO42Ya2zk82qR9C5Mtfa</loc>
+    <xhtml:link rel="alternate" hreflang="ka" href="https://lamiani.ge/partner/dO42Ya2zk82qR9C5Mtfa"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lamiani.ge/en/partner/dO42Ya2zk82qR9C5Mtfa"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://lamiani.ge/ru/partner/dO42Ya2zk82qR9C5Mtfa"/>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

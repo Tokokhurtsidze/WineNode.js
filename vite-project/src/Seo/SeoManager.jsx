@@ -5,10 +5,19 @@ import { useLanguage } from "../context/LanguageContext";
 
 const BASE_URL = "https://lamiani.ge";
 const LOCALE_MAP = {
-  GE: { ogLocale: "ka_GE", hrefLang: "ka" },
-  EN: { ogLocale: "en_US", hrefLang: "en" },
-  RU: { ogLocale: "ru_RU", hrefLang: "ru" },
+  GE: { ogLocale: "ka_GE", hrefLang: "ka", urlPrefix: "" },
+  EN: { ogLocale: "en_US", hrefLang: "en", urlPrefix: "/en" },
+  RU: { ogLocale: "ru_RU", hrefLang: "ru", urlPrefix: "/ru" },
 };
+const LOCALE_PREFIXES = ["/en", "/ru", "/ka"];
+
+function stripLocalePrefix(p) {
+  for (const pre of LOCALE_PREFIXES) {
+    if (p === pre) return "/";
+    if (p.startsWith(pre + "/")) return p.slice(pre.length);
+  }
+  return p;
+}
 
 export default function SeoManager({
   title,
@@ -24,9 +33,12 @@ export default function SeoManager({
   const location = useLocation();
   const { lang } = useLanguage();
   const currentPath = location.pathname;
+  const canonicalPath = stripLocalePrefix(currentPath);
   const fullUrl = `${BASE_URL}${currentPath}`;
+  const canonicalUrl = `${BASE_URL}${LOCALE_MAP[lang]?.urlPrefix || ""}${canonicalPath === "/" ? "" : canonicalPath}` || `${BASE_URL}/`;
   const ogImage = image || `${BASE_URL}/preview-image.jpg`;
   const currentLocale = LOCALE_MAP[lang] || LOCALE_MAP.GE;
+  const altPath = canonicalPath === "/" ? "" : canonicalPath;
 
   return (
     <>
@@ -43,20 +55,20 @@ export default function SeoManager({
         }
       />
 
-      <Link rel="canonical" href={fullUrl} />
+      <Link rel="canonical" href={canonicalUrl} />
 
-      {/* Hreflang */}
-      <Link rel="alternate" hrefLang="ka" href={fullUrl} />
-      <Link rel="alternate" hrefLang="en" href={`${fullUrl}?lang=EN`} />
-      <Link rel="alternate" hrefLang="ru" href={`${fullUrl}?lang=RU`} />
-      <Link rel="alternate" hrefLang="x-default" href={fullUrl} />
+      {/* Hreflang — real locale-prefixed URLs */}
+      <Link rel="alternate" hrefLang="ka" href={`${BASE_URL}${altPath || "/"}`} />
+      <Link rel="alternate" hrefLang="en" href={`${BASE_URL}/en${altPath}`} />
+      <Link rel="alternate" hrefLang="ru" href={`${BASE_URL}/ru${altPath}`} />
+      <Link rel="alternate" hrefLang="x-default" href={`${BASE_URL}${altPath || "/"}`} />
 
       {/* Open Graph */}
       <Meta property="og:type" content={ogType} />
       <Meta property="og:site_name" content="LAMIANI" />
       <Meta property="og:title" content={title} />
       <Meta property="og:description" content={description} />
-      <Meta property="og:url" content={fullUrl} />
+      <Meta property="og:url" content={canonicalUrl} />
       <Meta property="og:image" content={ogImage} />
       <Meta property="og:image:secure_url" content={ogImage} />
       <Meta property="og:image:alt" content={title} />
@@ -80,7 +92,7 @@ export default function SeoManager({
       <Meta name="twitter:description" content={description} />
       <Meta name="twitter:image" content={ogImage} />
       <Meta name="twitter:image:alt" content={title} />
-      <Meta name="twitter:url" content={fullUrl} />
+      <Meta name="twitter:url" content={canonicalUrl} />
 
       {/* BreadcrumbList JSON-LD */}
       {Array.isArray(breadcrumbs) && breadcrumbs.length > 0 && (

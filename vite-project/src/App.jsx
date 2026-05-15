@@ -15,6 +15,7 @@ import { LanguageProvider, useLanguage } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext";
 
 import ScrollToTop from "./components/ScrollToTop";
+import LocaleSync from "./components/LocaleSync";
 
 function AppContent() {
   const { lang } = useLanguage();
@@ -27,6 +28,7 @@ function AppContent() {
         <Header />
         <main className="flex-grow">
           <Routes>
+            {/* Default locale routes (no prefix = Georgian) */}
             <Route path="/" element={<HomePage lang={lang} />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/about" element={<AboutUs />} />
@@ -35,6 +37,21 @@ function AppContent() {
             <Route path="/wines" element={<AllWines />} />
             <Route path="/wine/:id" element={<WineDetails />} />
             <Route path="/discounted/:id" element={<DiscountedWineDetails />} />
+
+            {/* Locale-prefixed routes (ka/en/ru) — auto-syncs Language context.
+                Three explicit roots because RR7 doesn't accept inline regex paths. */}
+            {["ka", "en", "ru"].map((loc) => (
+              <Route key={loc} path={`/${loc}`} element={<LocaleSync />}>
+                <Route index element={<HomePage lang={lang} />} />
+                <Route path="contact" element={<ContactUs />} />
+                <Route path="about" element={<AboutUs />} />
+                <Route path="partners" element={<PartnerGallery />} />
+                <Route path="partner/:id" element={<PartnerDetails />} />
+                <Route path="wines" element={<AllWines />} />
+                <Route path="wine/:id" element={<WineDetails />} />
+                <Route path="discounted/:id" element={<DiscountedWineDetails />} />
+              </Route>
+            ))}
           </Routes>
         </main>
         <Footer />
