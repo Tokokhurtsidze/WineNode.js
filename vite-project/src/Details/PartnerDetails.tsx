@@ -94,7 +94,6 @@ export default function PartnerDetails() {
             />
           </div>
           <div className="flex flex-col gap-6 text-left">
-            <h2 className="text-3xl font-bold text-[#1a1a1a] leading-tight">{displayName}</h2>
             <div className="w-20 h-1 bg-[#5b1f1f] rounded-full" />
             <p className="text-[#333] text-lg leading-[1.8] font-light whitespace-pre-line">{displayDesc}</p>
             <div className="mt-4">

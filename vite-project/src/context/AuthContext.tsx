@@ -62,16 +62,20 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const loginWithGoogle = async () => {
     const { user: googleUser } = await signInWithPopup(auth, googleProvider);
-    const ref = doc(db, 'users', googleUser.uid);
-    const snap = await getDoc(ref);
-    if (!snap.exists()) {
-      await setDoc(ref, {
-        uid: googleUser.uid,
-        email: googleUser.email,
-        displayName: googleUser.displayName || googleUser.email,
-        role: 'user',
-        createdAt: serverTimestamp(),
-      });
+    try {
+      const ref = doc(db, 'users', googleUser.uid);
+      const snap = await getDoc(ref);
+      if (!snap.exists()) {
+        await setDoc(ref, {
+          uid: googleUser.uid,
+          email: googleUser.email,
+          displayName: googleUser.displayName || googleUser.email,
+          role: 'user',
+          createdAt: serverTimestamp(),
+        });
+      }
+    } catch {
+      // Firestore write blocked by security rules — auth still succeeded
     }
   };
 

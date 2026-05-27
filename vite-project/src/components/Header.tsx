@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
-import { Sun, Moon, User, LogOut, ShoppingBag } from 'lucide-react';
+import { Sun, Moon, User, LogOut, ShoppingBag, Search } from 'lucide-react';
 import { db } from '../firebase';
 import { useLanguage, type Lang } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
@@ -37,7 +37,7 @@ const translations = {
     logout: 'გამოსვლა',
   },
   EN: {
-    search: 'Search (name, type...)',
+    search: 'Search wines, partners...',
     nav: ['About', 'Wines', 'Partners', 'Contact'],
     navDesktop: ['About', 'Wines', 'Partners', 'Contact'],
     mobileLang: 'Language',
@@ -49,7 +49,7 @@ const translations = {
     logout: 'Logout',
   },
   RU: {
-    search: 'Поиск (имя, тип...)',
+    search: 'Поиск вин, партнёров...',
     nav: ['О нас', 'Вина', 'Партнеры', 'Контакт'],
     navDesktop: ['О нас', 'Вина', 'Партнеры', 'Контакт'],
     mobileLang: 'Язык',
@@ -97,6 +97,7 @@ export default function Header() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
+  const [searchExpanded, setSearchExpanded] = useState(false);
   const [search, setSearch] = useState('');
   const [results, setResults] = useState<SearchItem[]>([]);
   const [allItems, setAllItems] = useState<SearchItem[]>([]);
@@ -105,6 +106,8 @@ export default function Header() {
 
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const accountRef = useRef<HTMLDivElement>(null);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -119,12 +122,18 @@ export default function Header() {
     setSearch('');
     setResults([]);
     setAccountOpen(false);
+    setSearchExpanded(false);
   }, [location.pathname]);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (accountRef.current && !accountRef.current.contains(e.target as Node)) {
         setAccountOpen(false);
+      }
+      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target as Node)) {
+        setSearchExpanded(false);
+        setSearch('');
+        setResults([]);
       }
     };
     document.addEventListener('mousedown', handler);
@@ -171,6 +180,7 @@ export default function Header() {
     setIsOpen(false);
     setSearch('');
     setResults([]);
+    setSearchExpanded(false);
     navigate(`/${item.category}/${item.id}`);
   };
 
@@ -179,8 +189,19 @@ export default function Header() {
     navigate('/');
   };
 
+  const openSearch = () => {
+    setSearchExpanded(true);
+    setTimeout(() => searchInputRef.current?.focus(), 50);
+  };
+
   const isLight = isScrolled || isOpen || isPressed;
   const burgerLineColor = `${isLight ? 'bg-black' : 'bg-white group-hover:bg-black'} dark:!bg-white`;
+
+  const iconColor = `transition-colors duration-500 ${
+    isScrolled
+      ? 'text-[#5b1f1f] dark:text-[#D9D2C6]'
+      : 'text-white group-hover:text-[#5b1f1f] dark:group-hover:text-[#D9D2C6]'
+  }`;
 
   const searchResultName = (item: SearchItem) => {
     const langKey = lang.toLowerCase() as 'ge' | 'en' | 'ru';
@@ -199,77 +220,98 @@ export default function Header() {
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-full flex items-center justify-between relative z-[210]">
 
-        {/* LOGO */}
-        <div className="shrink-0">
-          <Link to="/" className={`text-2xl font-serif font-bold tracking-tighter transition-colors duration-500 ${
-            isLight ? 'text-[#1a1a1a] dark:text-[#D9D2C6]' : 'text-white group-hover:text-[#1a1a1a] dark:group-hover:text-[#D9D2C6]'
-          }`}>
-            LAMIANI<span className={isLight
-              ? 'text-[#5b1f1f] dark:text-[#A04848] dark:[text-shadow:0_0_14px_rgba(160,72,72,0.5)]'
-              : 'text-white/50 group-hover:text-[#5b1f1f] dark:group-hover:text-[#A04848]'}>.</span>
-          </Link>
-        </div>
+        {/* ── DESKTOP ── */}
+        <div className="hidden lg:flex items-center justify-between w-full">
 
-        {/* DESKTOP SEARCH */}
-        <div className="hidden lg:block w-[220px] xl:w-[280px] 2xl:w-[340px] shrink-0 relative mx-3 xl:mx-6 2xl:mx-10">
-          <div className={`flex items-center rounded-full px-4 py-2 transition-all border ${
-            isScrolled
-              ? 'bg-gray-50 dark:bg-white/5 border-gray-100 dark:border-white/10 focus-within:bg-white dark:focus-within:bg-white/10 focus-within:border-[#5b1f1f]/30'
-              : 'bg-white/10 border-white/20 group-hover:bg-gray-50 dark:group-hover:bg-white/5 group-hover:border-gray-100 dark:group-hover:border-white/10 focus-within:bg-white dark:focus-within:bg-white/10'
-          }`}>
-            <span className={`transition-colors duration-500 ${isScrolled ? 'text-gray-400 dark:text-gray-500' : 'text-white/70 group-hover:text-gray-400 dark:group-hover:text-gray-500'}`}>⌕</span>
-            <input
-              type="search"
-              value={search}
-              onChange={handleChange}
-              placeholder={t.search}
-              className={`bg-transparent outline-none ${isGE ? 'text-[12px]' : 'text-[13px]'} w-full ml-3 font-serif italic transition-colors duration-500 ${
-                isScrolled
-                  ? 'text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500'
-                  : 'text-white placeholder:text-white/60 group-hover:text-gray-800 dark:group-hover:text-gray-100 group-hover:placeholder:text-gray-400 dark:group-hover:placeholder:text-gray-500'
+          {/* LEFT: Logo + Nav */}
+          <div className="flex items-center gap-6 xl:gap-10">
+            <Link
+              to="/"
+              className={`text-2xl font-serif font-bold tracking-tighter shrink-0 transition-colors duration-500 ${
+                isLight ? 'text-[#1a1a1a] dark:text-[#D9D2C6]' : 'text-white group-hover:text-[#1a1a1a] dark:group-hover:text-[#D9D2C6]'
               }`}
-            />
+            >
+              LAMIANI
+              <span className={isLight
+                ? 'text-[#5b1f1f] dark:text-[#A04848] dark:[text-shadow:0_0_14px_rgba(160,72,72,0.5)]'
+                : 'text-white/50 group-hover:text-[#5b1f1f] dark:group-hover:text-[#A04848]'}>.</span>
+            </Link>
+
+            <nav>
+              <ul className={`flex items-center ${isGE ? 'gap-4 xl:gap-6' : 'gap-5 xl:gap-8'}`}>
+                {t.navDesktop.map((item: string, idx: number) => (
+                  <li key={idx}>
+                    <Link
+                      to={`/${['about', 'wines', 'partners', 'contact'][idx]}`}
+                      className={`${isGE ? 'text-[12px] xl:text-[13px] tracking-[0.04em]' : 'text-[13px] xl:text-[14px] tracking-[0.02em]'} font-medium whitespace-nowrap transition-all duration-500 ${
+                        isScrolled
+                          ? 'text-gray-600 dark:text-gray-300 hover:text-[#5b1f1f] dark:hover:text-[#D9D2C6]'
+                          : 'text-white/85 group-hover:text-gray-600 dark:group-hover:text-gray-300 hover:!text-[#5b1f1f] dark:hover:!text-[#D9D2C6]'
+                      }`}
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
           </div>
-          {results.length > 0 && (
-            <div className="absolute top-[120%] left-0 w-full bg-white dark:bg-[#181C25] shadow-2xl border border-gray-100 dark:border-white/10 rounded-xl py-2 z-[250] max-h-96 overflow-y-auto text-black dark:text-gray-100">
-              {results.map((item) => (
-                <button key={item.id} onClick={() => handleNavigate(item)} className="w-full flex items-center gap-4 px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-left">
-                  <img src={item.img} alt="" className="w-10 h-10 object-contain" />
-                  <div className="flex flex-col">
-                    <span className="text-sm font-medium text-gray-800 dark:text-gray-100">{searchResultName(item)}</span>
-                    <span className="text-[9px] uppercase tracking-widest text-[#5b1f1f] dark:text-[#D9D2C6] font-bold">{item.category}</span>
-                  </div>
-                </button>
-              ))}
+
+          {/* RIGHT: Controls + Search */}
+          <div className="flex items-center gap-1.5 xl:gap-2">
+
+            {/* Search — expands on hover/click */}
+            <div ref={searchContainerRef} className="relative flex items-center">
+              {/* Sliding input */}
+              <div className={`overflow-hidden transition-all duration-300 ease-out ${searchExpanded ? 'w-52 xl:w-64 opacity-100' : 'w-0 opacity-0'}`}>
+                <input
+                  ref={searchInputRef}
+                  type="search"
+                  value={search}
+                  onChange={handleChange}
+                  placeholder={t.search}
+                  className={`w-full bg-transparent outline-none border-b text-[13px] pb-1 pr-2 font-sans transition-colors duration-500 ${
+                    isScrolled
+                      ? 'border-gray-300 dark:border-white/20 text-gray-800 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500'
+                      : 'border-white/50 group-hover:border-gray-300 text-white group-hover:text-gray-800 dark:group-hover:text-gray-100 placeholder:text-white/60 group-hover:placeholder:text-gray-400'
+                  }`}
+                />
+              </div>
+
+              {/* Search icon button */}
+              <button
+                onClick={openSearch}
+                onMouseEnter={openSearch}
+                aria-label="Search"
+                className={`p-1.5 rounded-full ${iconColor} hover:bg-black/5 dark:hover:bg-white/10 shrink-0`}
+              >
+                <Search size={17} />
+              </button>
+
+              {/* Results dropdown */}
+              {results.length > 0 && searchExpanded && (
+                <div className="absolute left-0 top-[calc(100%+12px)] w-72 bg-white dark:bg-[#181C25] shadow-2xl border border-gray-100 dark:border-white/10 rounded-xl py-2 z-[300] max-h-96 overflow-y-auto">
+                  {results.map((item) => (
+                    <button key={item.id} onClick={() => handleNavigate(item)} className="w-full flex items-center gap-4 px-4 py-3 hover:bg-gray-50 dark:hover:bg-white/5 text-left">
+                      <img src={item.img} alt="" className="w-10 h-10 object-contain shrink-0" />
+                      <div className="flex flex-col">
+                        <span className="text-sm font-medium text-gray-800 dark:text-gray-100">{searchResultName(item)}</span>
+                        <span className="text-[9px] uppercase tracking-widest text-[#5b1f1f] dark:text-[#D9D2C6] font-bold">{item.category}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        {/* DESKTOP NAV */}
-        <nav className={`hidden lg:flex items-center shrink-0 ${isGE ? 'gap-2 xl:gap-4 2xl:gap-7' : 'gap-4 xl:gap-7 2xl:gap-10'}`}>
-          <ul className={`flex items-center ${isGE ? 'gap-2 xl:gap-4 2xl:gap-7' : 'gap-4 xl:gap-7 2xl:gap-10'}`}>
-            {t.navDesktop.map((item, idx) => (
-              <li key={idx}>
-                <Link to={`/${['about', 'wines', 'partners', 'contact'][idx]}`} className={`${isGE ? 'text-[11px] xl:text-[12px] tracking-[0.05em] xl:tracking-[0.08em]' : 'text-[10px] xl:text-[11px] uppercase tracking-[0.18em] xl:tracking-[0.25em]'} font-bold whitespace-nowrap transition-all duration-500 ${
-                  isScrolled
-                    ? 'text-gray-500 dark:text-gray-400 hover:text-[#5b1f1f] dark:hover:text-[#D9D2C6]'
-                    : 'text-white/80 group-hover:text-gray-500 dark:group-hover:text-gray-400 hover:!text-[#5b1f1f] dark:hover:!text-[#D9D2C6]'
-                }`}>
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* Controls */}
-          <div className={`flex items-center gap-2 xl:gap-3 ml-2 xl:ml-4 border-l pl-3 xl:pl-6 transition-colors duration-500 ${isScrolled ? 'border-gray-100 dark:border-white/10' : 'border-white/20 group-hover:border-gray-100 dark:group-hover:border-white/10'}`}>
+            {/* Lang cycle */}
             <button
               onClick={() => {
                 const cycle: Lang[] = ['GE', 'EN', 'RU'];
                 setLang(cycle[(cycle.indexOf(lang as Lang) + 1) % 3]);
               }}
               title="Change language"
-              className={`text-[10px] font-bold tracking-widest transition-all duration-300 px-2 py-0.5 rounded border ${
+              className={`text-[10px] font-bold tracking-widest px-2 py-0.5 rounded border transition-all duration-300 ${
                 isScrolled
                   ? 'text-[#5b1f1f] dark:text-[#D9D2C6] border-[#5b1f1f]/25 dark:border-[#B89968]/25 hover:bg-[#5b1f1f]/5'
                   : 'text-white group-hover:text-[#5b1f1f] dark:group-hover:text-[#D9D2C6] border-white/30 group-hover:border-[#5b1f1f]/25 dark:group-hover:border-[#B89968]/25'
@@ -278,14 +320,11 @@ export default function Header() {
               {lang}
             </button>
 
+            {/* Theme */}
             <button
               onClick={toggleTheme}
               aria-label={isDark ? t.lightMode : t.darkMode}
-              className={`p-1.5 rounded-full transition-all duration-500 ${
-                isScrolled
-                  ? 'text-[#5b1f1f] dark:text-[#D9D2C6] hover:bg-gray-100 dark:hover:bg-white/10'
-                  : 'text-white group-hover:text-[#5b1f1f] dark:group-hover:text-[#D9D2C6] hover:bg-white/10'
-              }`}
+              className={`p-1.5 rounded-full ${iconColor} hover:bg-black/5 dark:hover:bg-white/10`}
             >
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
             </button>
@@ -295,11 +334,7 @@ export default function Header() {
               <button
                 onClick={() => setAccountOpen((v) => !v)}
                 aria-label="Account menu"
-                className={`relative p-1.5 rounded-full transition-all duration-500 ${
-                  isScrolled
-                    ? 'text-[#5b1f1f] dark:text-[#D9D2C6] hover:bg-gray-100 dark:hover:bg-white/10'
-                    : 'text-white group-hover:text-[#5b1f1f] dark:group-hover:text-[#D9D2C6] hover:bg-white/10'
-                }`}
+                className={`relative p-1.5 rounded-full ${iconColor} hover:bg-black/5 dark:hover:bg-white/10`}
               >
                 <User size={17} />
                 {cartCount > 0 && (
@@ -355,31 +390,45 @@ export default function Header() {
                 </div>
               )}
             </div>
-          </div>
-        </nav>
 
-        {/* MOBILE — CART + BURGER */}
-        <div className="flex items-center gap-1 lg:hidden">
-          <button
-            onClick={openCart}
-            aria-label="Open cart"
-            className={`relative p-2 rounded-full transition-colors ${isLight ? 'text-[#5b1f1f] dark:text-[#D9D2C6]' : 'text-white group-hover:text-[#5b1f1f] dark:group-hover:text-[#D9D2C6]'}`}
+
+          </div>
+        </div>
+
+        {/* ── MOBILE: Logo + Cart + Burger ── */}
+        <div className="lg:hidden flex items-center justify-between w-full">
+          <Link
+            to="/"
+            className={`text-2xl font-serif font-bold tracking-tighter transition-colors duration-500 ${
+              isLight ? 'text-[#1a1a1a] dark:text-[#D9D2C6]' : 'text-white'
+            }`}
           >
-            <ShoppingBag size={18} />
-            {cartCount > 0 && (
-              <span className={`absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#5b1f1f] text-white text-[9px] font-bold flex items-center justify-center transition-opacity duration-500 ${isLight ? 'opacity-100' : 'opacity-0'}`}>
-                {cartCount > 9 ? '9+' : cartCount}
-              </span>
-            )}
-          </button>
-          <button onClick={toggleTheme} aria-label={isDark ? t.lightMode : t.darkMode} className={`p-2 rounded-full transition-colors ${isLight ? 'text-[#5b1f1f] dark:text-[#D9D2C6]' : 'text-white group-hover:text-[#5b1f1f] dark:group-hover:text-[#D9D2C6]'}`}>
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-          <button onClick={() => setIsOpen(!isOpen)} className="p-2 flex flex-col gap-1.5 z-[210]">
-            <div className={`w-6 h-0.5 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''} ${burgerLineColor}`} />
-            <div className={`w-6 h-0.5 transition-all duration-300 ${isOpen ? 'opacity-0' : ''} ${burgerLineColor}`} />
-            <div className={`w-6 h-0.5 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''} ${burgerLineColor}`} />
-          </button>
+            LAMIANI
+            <span className={isLight ? 'text-[#5b1f1f] dark:text-[#A04848]' : 'text-white/50'}>.</span>
+          </Link>
+
+          <div className="flex items-center gap-1">
+            <button
+              onClick={openCart}
+              aria-label="Open cart"
+              className={`relative p-2 rounded-full transition-colors ${isLight ? 'text-[#5b1f1f] dark:text-[#D9D2C6]' : 'text-white'}`}
+            >
+              <ShoppingBag size={18} />
+              {cartCount > 0 && (
+                <span className={`absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-[#5b1f1f] text-white text-[9px] font-bold flex items-center justify-center transition-opacity duration-500 ${isLight ? 'opacity-100' : 'opacity-0'}`}>
+                  {cartCount > 9 ? '9+' : cartCount}
+                </span>
+              )}
+            </button>
+            <button onClick={toggleTheme} aria-label={isDark ? t.lightMode : t.darkMode} className={`p-2 rounded-full transition-colors ${isLight ? 'text-[#5b1f1f] dark:text-[#D9D2C6]' : 'text-white'}`}>
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            <button onClick={() => setIsOpen(!isOpen)} className="p-2 flex flex-col gap-1.5 z-[210]">
+              <div className={`w-6 h-0.5 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''} ${burgerLineColor}`} />
+              <div className={`w-6 h-0.5 transition-all duration-300 ${isOpen ? 'opacity-0' : ''} ${burgerLineColor}`} />
+              <div className={`w-6 h-0.5 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''} ${burgerLineColor}`} />
+            </button>
+          </div>
         </div>
       </div>
 

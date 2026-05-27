@@ -103,15 +103,15 @@ export default function ProfilePage() {
           style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.07)' }}
         >
           <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-[#666] mb-6">{t('account_overview')}</h2>
-          <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-full bg-[#5b1f1f]/8 dark:bg-[#A04848]/15 border border-[#5b1f1f]/15 dark:border-[#A04848]/25 flex items-center justify-center shrink-0">
-              <User size={24} className="text-[#5b1f1f] dark:text-[#A04848]" />
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="w-14 h-14 rounded-full bg-[#5b1f1f]/8 dark:bg-[#A04848]/15 border border-[#5b1f1f]/15 dark:border-[#A04848]/25 flex items-center justify-center shrink-0">
+              <User size={22} className="text-[#5b1f1f] dark:text-[#A04848]" />
             </div>
-            <div>
-              <p className="text-lg font-serif font-medium text-[#1a1a1a] dark:text-[#D9D2C6]">
+            <div className="min-w-0">
+              <p className="text-lg font-serif font-medium text-[#1a1a1a] dark:text-[#D9D2C6] break-words">
                 {userProfile?.displayName || user?.email}
               </p>
-              <p className="text-xs text-gray-400 dark:text-[#555] mt-0.5">{user?.email}</p>
+              <p className="text-xs text-gray-400 dark:text-[#555] mt-0.5 break-all">{user?.email}</p>
               <p className="text-[10px] text-gray-300 dark:text-[#444] mt-1">{t('member_since')} {joinDate}</p>
             </div>
           </div>
