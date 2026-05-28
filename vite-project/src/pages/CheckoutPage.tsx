@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, ShoppingBag, Lock, Wifi } from 'lucide-react';
+import { CheckCircle, ShoppingBag, Lock } from 'lucide-react';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useAuth } from '../context/AuthContext';
@@ -30,81 +30,6 @@ function InputField({ label, name, type = 'text', value, onChange, required = tr
   );
 }
 
-function VisualCard({ number, name, expiry, cvv, flipped }: {
-  number: string; name: string; expiry: string; cvv: string; flipped: boolean;
-}) {
-  const displayNumber = (number.replace(/\s/g, '') + '················').slice(0, 16);
-  const groups = [displayNumber.slice(0, 4), displayNumber.slice(4, 8), displayNumber.slice(8, 12), displayNumber.slice(12, 16)];
-
-  return (
-    <div className="w-full max-w-[340px] mx-auto" style={{ perspective: '1000px' }}>
-      <motion.div
-        animate={{ rotateY: flipped ? 180 : 0 }}
-        transition={{ duration: 0.5, ease: 'easeInOut' }}
-        style={{ transformStyle: 'preserve-3d', position: 'relative', height: '200px' }}
-      >
-        {/* Front */}
-        <div
-          className="absolute inset-0 rounded-2xl p-6 flex flex-col justify-between"
-          style={{
-            backfaceVisibility: 'hidden',
-            background: 'linear-gradient(135deg, #5b1f1f 0%, #8b3a3a 40%, #3d1010 100%)',
-            boxShadow: '0 25px 50px rgba(91,31,31,0.4)',
-          }}
-        >
-          <div className="flex items-center justify-between">
-            <Wifi size={28} className="text-white/60 rotate-90" />
-            <div className="flex gap-1">
-              <div className="w-7 h-7 rounded-full bg-[#eb9c2d]/80" />
-              <div className="w-7 h-7 rounded-full bg-[#f5c518]/60 -ml-3" />
-            </div>
-          </div>
-
-          <div className="flex gap-3 font-mono text-lg tracking-[0.2em] text-white/90">
-            {groups.map((g, i) => (
-              <span key={i}>{g}</span>
-            ))}
-          </div>
-
-          <div className="flex items-end justify-between">
-            <div>
-              <p className="text-[9px] uppercase tracking-widest text-white/40 mb-0.5">Card Holder</p>
-              <p className="text-sm font-medium text-white tracking-wider truncate max-w-[180px]">
-                {name || 'FULL NAME'}
-              </p>
-            </div>
-            <div className="text-right">
-              <p className="text-[9px] uppercase tracking-widest text-white/40 mb-0.5">Expires</p>
-              <p className="text-sm font-medium text-white font-mono">{expiry || 'MM/YY'}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Back */}
-        <div
-          className="absolute inset-0 rounded-2xl flex flex-col justify-center"
-          style={{
-            backfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
-            background: 'linear-gradient(135deg, #3d1010 0%, #5b1f1f 60%, #8b3a3a 100%)',
-            boxShadow: '0 25px 50px rgba(91,31,31,0.4)',
-          }}
-        >
-          <div className="w-full h-10 bg-black/40 mb-5" />
-          <div className="px-6 flex items-center justify-between">
-            <div className="flex-1 h-8 bg-white/10 rounded mr-3" />
-            <div className="bg-white/90 rounded px-3 py-1.5 min-w-[50px] text-center">
-              <p className="text-[10px] text-gray-400 mb-0.5">CVV</p>
-              <p className="font-mono text-sm font-bold text-[#1a1a1a] tracking-widest">
-                {cvv ? '•'.repeat(cvv.length) : '•••'}
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-}
 
 export default function CheckoutPage() {
   const { user } = useAuth();
@@ -115,7 +40,6 @@ export default function CheckoutPage() {
 
   const [shipping, setShipping] = useState<ShippingDetails>(INITIAL_SHIPPING);
   const [card, setCard] = useState({ number: '', name: '', expiry: '', cvv: '' });
-  const [cvvFocused, setCvvFocused] = useState(false);
   const [step, setStep] = useState<CheckoutStep>('form');
   const [error, setError] = useState('');
 
@@ -296,11 +220,6 @@ export default function CheckoutPage() {
                     <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-[#666]">Card Details</h2>
                   </div>
 
-                  {/* Visual card */}
-                  <div className="mb-8">
-                    <VisualCard number={card.number} name={card.name} expiry={card.expiry} cvv={card.cvv} flipped={cvvFocused} />
-                  </div>
-
                   <div className="flex flex-col gap-4">
                     {/* Card number */}
                     <div>
@@ -352,8 +271,6 @@ export default function CheckoutPage() {
                           inputMode="numeric"
                           value={card.cvv}
                           onChange={(e) => setCard((prev) => ({ ...prev, cvv: e.target.value.replace(/\D/g, '').slice(0, 4) }))}
-                          onFocus={() => setCvvFocused(true)}
-                          onBlur={() => setCvvFocused(false)}
                           placeholder="•••"
                           required
                           maxLength={4}

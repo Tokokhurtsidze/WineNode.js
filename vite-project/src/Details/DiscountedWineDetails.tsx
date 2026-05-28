@@ -16,9 +16,9 @@ interface DiscountedWine {
 }
 
 const translations = {
-  GE: { loading: 'იტვირთება...', notFound: 'ღვინო ვერ მოიძებნა', backBtn: 'უკან დაბრუნება', homeBtn: 'მთავარ გვერდზე დაბრუნება', addToCart: 'კალათში დამატება', added: 'დამატებულია!' },
-  EN: { loading: 'Loading...', notFound: 'Wine not found', backBtn: 'Back', homeBtn: 'Back to Home', addToCart: 'Add to Cart', added: 'Added!' },
-  RU: { loading: 'Загрузка...', notFound: 'Вино не найдено', backBtn: 'Назад', homeBtn: 'На главную', addToCart: 'В корзину', added: 'Добавлено!' },
+  GE: { loading: 'იტვირთება...', notFound: 'ღვინო ვერ მოიძებნა', backBtn: 'უკან დაბრუნება', homeBtn: 'მთავარ გვერდზე დაბრუნება', addToCart: 'კალათში დამატება', added: 'დამატებულია!', volume: 'მოცულობა: 750 მლ' },
+  EN: { loading: 'Loading...', notFound: 'Wine not found', backBtn: 'Back', homeBtn: 'Back to Home', addToCart: 'Add to Cart', added: 'Added!', volume: 'Volume: 750ml' },
+  RU: { loading: 'Загрузка...', notFound: 'Вино не найдено', backBtn: 'Назад', homeBtn: 'На главную', addToCart: 'В корзину', added: 'Добавлено!', volume: 'Объём: 750 мл' },
 };
 
 export default function DiscountedWineDetails() {
@@ -115,6 +115,12 @@ export default function DiscountedWineDetails() {
 
         <div className="w-full flex justify-center mb-12">
           <img src={imgSrc} alt={`${displayName} — ${wine.discount}% off premium Georgian wine`} width="400" height="550" loading="eager" decoding="async" className="h-[450px] sm:h-[550px] w-auto object-contain" />
+        </div>
+
+        <div className="flex items-center gap-2 mb-6 text-xs uppercase tracking-widest text-gray-400 dark:text-[#666]">
+          <span className="w-4 h-px bg-gray-300 dark:bg-[#444]" />
+          {t.volume}
+          <span className="w-4 h-px bg-gray-300 dark:bg-[#444]" />
         </div>
 
         <div className="w-full flex flex-col items-center text-center">

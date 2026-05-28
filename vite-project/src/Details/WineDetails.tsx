@@ -18,9 +18,9 @@ interface WineData {
 }
 
 const translations = {
-  GE: { loading: 'იტვირთება...', notFound: 'ღვინო ვერ მოიძებნა', homeBtn: 'მთავარ გვერდზე დაბრუნება', aboutTitle: 'ღვინის შესახებ', home: 'მთავარი', popular: 'პოპულარული ღვინოები', addToCart: 'კალათში დამატება', added: 'დამატებულია!' },
-  EN: { loading: 'Loading...', notFound: 'Wine not found', homeBtn: 'Back to Home', aboutTitle: 'About the Wine', home: 'Home', popular: 'Popular Wines', addToCart: 'Add to Cart', added: 'Added!' },
-  RU: { loading: 'Загрузка...', notFound: 'Вино не найдено', homeBtn: 'На главную', aboutTitle: 'О вине', home: 'Главная', popular: 'Популярные вина', addToCart: 'В корзину', added: 'Добавлено!' },
+  GE: { loading: 'იტვირთება...', notFound: 'ღვინო ვერ მოიძებნა', homeBtn: 'მთავარ გვერდზე დაბრუნება', aboutTitle: 'ღვინის შესახებ', home: 'მთავარი', popular: 'პოპულარული ღვინოები', addToCart: 'კალათში დამატება', added: 'დამატებულია!', volume: 'მოცულობა: 750 მლ' },
+  EN: { loading: 'Loading...', notFound: 'Wine not found', homeBtn: 'Back to Home', aboutTitle: 'About the Wine', home: 'Home', popular: 'Popular Wines', addToCart: 'Add to Cart', added: 'Added!', volume: 'Volume: 750ml' },
+  RU: { loading: 'Загрузка...', notFound: 'Вино не найдено', homeBtn: 'На главную', aboutTitle: 'О вине', home: 'Главная', popular: 'Популярные вина', addToCart: 'В корзину', added: 'Добавлено!', volume: 'Объём: 750 мл' },
 };
 
 export default function WineDetails() {
@@ -109,6 +109,12 @@ export default function WineDetails() {
 
         <div className="w-full flex justify-center mb-12">
           <img src={imgSrc} alt={`${displayName} — premium Georgian wine bottle`} width="400" height="550" loading="eager" decoding="async" className="h-[450px] sm:h-[550px] w-auto object-contain transition-transform duration-700 hover:scale-105" />
+        </div>
+
+        <div className="flex items-center gap-2 mb-6 text-xs uppercase tracking-widest text-gray-400 dark:text-[#666]">
+          <span className="w-4 h-px bg-gray-300 dark:bg-[#444]" />
+          {t.volume}
+          <span className="w-4 h-px bg-gray-300 dark:bg-[#444]" />
         </div>
 
         {wine.price && (
