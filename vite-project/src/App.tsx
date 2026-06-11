@@ -17,6 +17,7 @@ import PartnerGallery from './pages/PartnerGallery';
 import AllWines from './pages/AllWines';
 import AuthPage from './pages/AuthPage';
 import CheckoutPage from './pages/CheckoutPage';
+import CheckoutSuccessPage from './pages/CheckoutSuccessPage';
 import ProfilePage from './pages/ProfilePage';
 import AdminPage from './pages/AdminPage';
 
@@ -32,7 +33,7 @@ import { ProtectedRoute, AdminRoute } from './components/ui/ProtectedRoute';
 const LOCALES = ['ka', 'en', 'ru'] as const;
 
 function AppContent() {
-  const { lang } = useLanguage();
+  useLanguage();
 
   return (
     <HeadProvider>
@@ -45,7 +46,7 @@ function AppContent() {
         <main className="flex-grow">
           <Routes>
             {/* ── Non-prefixed routes (default Georgian) ── */}
-            <Route path="/" element={<HomePage lang={lang} />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/partners" element={<PartnerGallery />} />
@@ -63,6 +64,7 @@ function AppContent() {
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/checkout" element={<CheckoutPage />} />
             </Route>
+            <Route path="/checkout/success" element={<CheckoutSuccessPage />} />
 
             {/* ── Admin routes ── */}
             <Route element={<AdminRoute />}>
@@ -72,7 +74,7 @@ function AppContent() {
             {/* ── Locale-prefixed routes (ka / en / ru) ── */}
             {LOCALES.map((loc) => (
               <Route key={loc} path={`/${loc}`} element={<LocaleSync />}>
-                <Route index element={<HomePage lang={lang} />} />
+                <Route index element={<HomePage />} />
                 <Route path="contact" element={<ContactUs />} />
                 <Route path="about" element={<AboutUs />} />
                 <Route path="partners" element={<PartnerGallery />} />
@@ -88,6 +90,7 @@ function AppContent() {
                   <Route path="profile" element={<ProfilePage />} />
                   <Route path="checkout" element={<CheckoutPage />} />
                 </Route>
+                <Route path="checkout/success" element={<CheckoutSuccessPage />} />
 
                 <Route element={<AdminRoute />}>
                   <Route path="admin" element={<AdminPage />} />

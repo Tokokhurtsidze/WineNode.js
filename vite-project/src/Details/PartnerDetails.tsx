@@ -95,7 +95,22 @@ export default function PartnerDetails() {
           </div>
           <div className="flex flex-col gap-6 text-left">
             <div className="w-20 h-1 bg-[#5b1f1f] rounded-full" />
-            <p className="text-[#333] text-lg leading-[1.8] font-light whitespace-pre-line">{displayDesc}</p>
+            <div className="flex flex-col gap-5">
+              {displayDesc
+                ? displayDesc.split(/\n\n+/).map((para, i) => (
+                    <p
+                      key={i}
+                      className={`text-[#333] dark:text-[#C8C0B4] leading-[1.9] font-light ${
+                        i === 0
+                          ? 'text-lg first-letter:text-5xl first-letter:font-bold first-letter:text-[#5b1f1f] first-letter:float-left first-letter:mr-2 first-letter:leading-[0.85] first-letter:mt-1'
+                          : 'text-base'
+                      }`}
+                    >
+                      {para.trim()}
+                    </p>
+                  ))
+                : null}
+            </div>
             <div className="mt-4">
               <button
                 onClick={() => navigate(-1)}
