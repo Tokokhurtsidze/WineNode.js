@@ -8,6 +8,18 @@ const dodo = new DodoPayments({
 
 const SITE_URL = 'https://wine-node-js.vercel.app';
 
+async function gelToUsd(amountGel: number): Promise<number> {
+  try {
+    const r = await fetch('https://open.er-api.com/v6/latest/GEL');
+    const data = await r.json() as { rates?: { USD?: number } };
+    const rate = data?.rates?.USD ?? 0.37;
+    return Math.round(amountGel * rate * 100); // USD cents
+  } catch {
+    // fallback rate if API unreachable
+    return Math.round(amountGel * 0.37 * 100);
+  }
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -25,8 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  // GEL → tetri (smallest unit, 1 GEL = 100 tetri)
-  const amountInTetri = Math.round(totalAmount * 100);
+  const amountInCents = await gelToUsd(totalAmount);
 
   try {
     const session = await dodo.checkoutSessions.create({
@@ -34,10 +45,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         {
           product_id: process.env.DODO_PRODUCT_ID ?? '',
           quantity: 1,
-          amount: amountInTetri,
+          amount: amountInCents,
         },
       ],
-      billing_currency: 'GEL',
+      billing_currency: 'USD',
       customer: { email: customerEmail, name: customerName || customerEmail },
       billing_address: {
         city: city || 'Tbilisi',

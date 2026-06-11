@@ -32,7 +32,15 @@ export default function WineDetails() {
   const [loading, setLoading] = useState(true);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
+  const [usdRate, setUsdRate] = useState(0.37);
   const { addItem, openCart } = useCartStore();
+
+  useEffect(() => {
+    fetch('https://open.er-api.com/v6/latest/GEL')
+      .then(r => r.json())
+      .then((data: { rates?: { USD?: number } }) => { if (data?.rates?.USD) setUsdRate(data.rates.USD); })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const fetchWine = async () => {
@@ -74,6 +82,7 @@ export default function WineDetails() {
   const displayDesc = getLangValue('description');
   const displayType = getLangValue('type');
   const priceNumeric = wine.price ? String(wine.price).replace(/[^0-9.]/g, '') : null;
+  const usdPrice = priceNumeric ? (parseFloat(priceNumeric) * usdRate).toFixed(2) : null;
   const priceValidUntil = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
   const productSchema = {
@@ -104,7 +113,12 @@ export default function WineDetails() {
         <div className="flex flex-col items-center text-center mb-10">
           <h1 className="text-3xl sm:text-5xl font-bold text-[#1a1a1a] uppercase tracking-tight mb-4">{displayName}</h1>
           <div className="w-12 h-[2px] bg-[#5b1f1f] mb-4" />
-          {wine.price && <p className="text-3xl font-bold text-[#5b1f1f]">{wine.price}</p>}
+          {wine.price && (
+            <div className="flex flex-col items-center gap-1">
+              <p className="text-3xl font-bold text-[#5b1f1f]">{wine.price}</p>
+              {usdPrice && <p className="text-sm text-gray-400 dark:text-[#666]">≈ ${usdPrice} USD</p>}
+            </div>
+          )}
         </div>
 
         <div className="w-full flex justify-center mb-12">

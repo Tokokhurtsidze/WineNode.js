@@ -30,7 +30,15 @@ export default function DiscountedWineDetails() {
   const [loading, setLoading] = useState(true);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
+  const [usdRate, setUsdRate] = useState(0.37);
   const { addItem, openCart } = useCartStore();
+
+  useEffect(() => {
+    fetch('https://open.er-api.com/v6/latest/GEL')
+      .then(r => r.json())
+      .then((data: { rates?: { USD?: number } }) => { if (data?.rates?.USD) setUsdRate(data.rates.USD); })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const fetchWine = async () => {
@@ -128,6 +136,7 @@ export default function DiscountedWineDetails() {
             <div className="flex flex-col items-end">
               <span className="text-gray-400 line-through text-sm">{wine.oldPrice} ₾</span>
               <span className="text-4xl font-bold text-[#5b1f1f]">{wine.newPrice} ₾</span>
+              <span className="text-sm text-gray-400 dark:text-[#666] mt-0.5">≈ ${(wine.newPrice * usdRate).toFixed(2)} USD</span>
             </div>
             {wine.discount > 0 && <span className="bg-[#5b1f1f] text-white px-3 py-1 text-sm font-bold rounded">-{wine.discount}%</span>}
           </div>
