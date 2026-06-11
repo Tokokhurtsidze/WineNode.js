@@ -37,7 +37,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           amount: amountInTetri,
         },
       ],
-      billing_currency: 'USD',
+      billing_currency: 'GEL',
       customer: { email: customerEmail, name: customerName || customerEmail },
       billing_address: {
         city: city || 'Tbilisi',
